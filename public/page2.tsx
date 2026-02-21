@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -8,8 +8,6 @@ import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
 
 const NAV_ITEMS = ["About Me", "Experience", "Projects", "Blog"];
 
@@ -113,8 +111,12 @@ function SocialIcon({ icon, href }: { icon: React.ReactNode; href?: string }) {
                 transition: "color 0.2s",
                 display: "inline-flex",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--accent)")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
+            onMouseEnter={(e) =>
+                (e.currentTarget.style.color = "var(--accent)")
+            }
+            onMouseLeave={(e) =>
+                (e.currentTarget.style.color = "var(--text-muted)")
+            }
         >
             {icon}
         </a>
@@ -123,7 +125,12 @@ function SocialIcon({ icon, href }: { icon: React.ReactNode; href?: string }) {
 
 function DiscordIcon() {
     return (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+        >
             <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z" />
         </svg>
     );
@@ -131,16 +138,6 @@ function DiscordIcon() {
 
 export default function Home() {
     const [activeSection, setActiveSection] = useState("About Me");
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
-    const menuRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 768);
-        checkMobile();
-        window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
-    }, []);
 
     useEffect(() => {
         const sections = NAV_ITEMS.map((name) => ({
@@ -162,161 +159,87 @@ export default function Home() {
         return () => window.removeEventListener("scroll", handler);
     }, []);
 
-    useEffect(() => {
-        const handler = (e: MouseEvent) => {
-            if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-                setMobileMenuOpen(false);
-            }
-        };
-        if (mobileMenuOpen) document.addEventListener("mousedown", handler);
-        return () => document.removeEventListener("mousedown", handler);
-    }, [mobileMenuOpen]);
-
     const scrollTo = (name: string) => {
         const el = document.getElementById(name.toLowerCase().replace(" ", "-"));
         if (el) el.scrollIntoView({ behavior: "smooth" });
-        setMobileMenuOpen(false);
     };
 
     return (
-        <div style={{ minHeight: "100vh", backgroundColor: "var(--bg)", color: "var(--text-primary)" }}>
-
-            {/* ── MOBILE TOP NAV BAR ── */}
-            {isMobile && (
-                <header
-                    ref={menuRef}
-                    style={{
-                        position: "sticky",
-                        top: 0,
-                        zIndex: 100,
-                        backgroundColor: "rgba(15,15,15,0.97)",
-                        backdropFilter: "blur(10px)",
-                        borderBottom: "1px solid var(--border)",
-                        padding: "12px 20px",
-                    }}
-                >
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                        <div>
-                            <p style={{ fontWeight: 700, fontSize: "15px", fontFamily: "'JetBrains Mono', monospace" }}>David Anukam</p>
-                            <p style={{ color: "var(--accent)", fontSize: "11px", fontWeight: 600 }}>Computer Science Student</p>
-                        </div>
-                        <button
-                            onClick={() => setMobileMenuOpen((v) => !v)}
-                            style={{ background: "none", border: "none", color: "var(--text-primary)", cursor: "pointer", display: "flex" }}
-                        >
-                            {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
-                        </button>
-                    </div>
-
-                    {mobileMenuOpen && (
-                        <div style={{ paddingTop: "12px", paddingBottom: "4px" }}>
-                            {NAV_ITEMS.map((item) => (
-                                <button
-                                    key={item}
-                                    onClick={() => scrollTo(item)}
-                                    className={`nav-link ${activeSection === item ? "active" : ""}`}
-                                    style={{ background: "none", border: "none", textAlign: "left", width: "100%" }}
-                                >
-                                    {item}
-                                </button>
-                            ))}
-                        </div>
-                    )}
-                </header>
-            )}
-
-            {/* ── MAIN LAYOUT ── */}
+        <div
+            className="border-2 border-red-500"
+            style={{
+                minHeight: "100vh",
+                backgroundColor: "var(--bg)",
+                color: "var(--text-primary)",
+            }}
+        >
             <div
-                style={{
-                    maxWidth: "1100px",
-                    margin: "0 auto",
-                    padding: isMobile ? "24px 20px" : "40px 32px",
-                    display: isMobile ? "block" : "grid",
-                    gridTemplateColumns: "260px 1fr",
-                    gap: "60px",
-                    alignItems: "start",
-                }}
+                className="max-w-7xl mx-auto px-6 py-10 border-2 border-green-500"
+                style={{ display: "grid", gridTemplateColumns: "280px 1fr", gap: "60px", alignItems: "start" }}
             >
-                {/* ── LEFT SIDEBAR (desktop only) ── */}
-                {!isMobile && (
-                    <div style={{ position: "sticky", top: "104px" }}>
-                        <div className="fade-in fade-in-1 mb-6">
-                            <NumberedBadge num={1} label="Contact" />
-                        </div>
-
-                        <h1
-                            className="fade-in fade-in-2"
-                            style={{
-                                fontSize: "clamp(24px, 3vw, 36px)",
-                                fontWeight: 700,
-                                letterSpacing: "-0.02em",
-                                lineHeight: 1.1,
-                                marginTop: "16px",
-                                marginBottom: "6px",
-                                fontFamily: "'JetBrains Mono', monospace",
-                            }}
-                        >
-                            David Anukam
-                        </h1>
-                        <p className="fade-in fade-in-2 accent" style={{ fontSize: "13px", fontWeight: 600, letterSpacing: "0.05em", marginBottom: "16px" }}>
-                            Computer Science Student
-                        </p>
-                        <p className="fade-in fade-in-3" style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: "20px" }}>
-                            I build fast, reliable open-source software that powers back end applications.
-                        </p>
-
-                        <div className="fade-in fade-in-3" style={{ display: "flex", gap: "14px", marginBottom: "36px", alignItems: "center", flexWrap: "wrap" }}>
-                            <SocialIcon icon={<GitHubIcon style={{ fontSize: 20 }} />} href="https://github.com/davidanukam" />
-                            <SocialIcon icon={<YouTubeIcon style={{ fontSize: 20 }} />} href="https://www.youtube.com/@Duzzenn2" />
-                            <SocialIcon icon={<DiscordIcon />} href="#" />
-                            <SocialIcon icon={<LinkedInIcon style={{ fontSize: 20 }} />} href="https://www.linkedin.com/in/david-anukam/" />
-                            <SocialIcon icon={<EmailIcon style={{ fontSize: 20 }} />} href="mailto:davidanukam72@gmail.com" />
-                            <SocialIcon icon={<PhoneIcon style={{ fontSize: 20 }} />} href="tel:+2269982576" />
-                        </div>
-
-                        <nav className="fade-in fade-in-4" style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                            {NAV_ITEMS.map((item) => (
-                                <button
-                                    key={item}
-                                    onClick={() => scrollTo(item)}
-                                    className={`nav-link ${activeSection === item ? "active" : ""}`}
-                                    style={{ background: "none", border: "none", textAlign: "left" }}
-                                >
-                                    {item}
-                                </button>
-                            ))}
-                        </nav>
+                {/* ── LEFT SIDEBAR ── */}
+                <div className="border-2 border-red-500" style={{ position: "sticky", top: "64px", left: "64px"}}>
+                    {/* Contact badge */}
+                    <div className="fade-in fade-in-1 mb-6">
+                        <NumberedBadge num={1} label="Contact" />
                     </div>
-                )}
+
+                    {/* Name */}
+                    <h1
+                        className="fade-in fade-in-2"
+                        style={{
+                            fontSize: "clamp(28px, 4vw, 38px)",
+                            fontWeight: 700,
+                            letterSpacing: "-0.02em",
+                            lineHeight: 1.1,
+                            marginTop: "16px",
+                            marginBottom: "6px",
+                            fontFamily: "'JetBrains Mono', monospace",
+                        }}
+                    >
+                        David Anukam
+                    </h1>
+                    <p
+                        className="fade-in fade-in-2 accent"
+                        style={{ fontSize: "13px", fontWeight: 600, letterSpacing: "0.05em", marginBottom: "16px" }}
+                    >
+                        Computer Science Student
+                    </p>
+
+                    <p
+                        className="fade-in fade-in-3"
+                        style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: "20px" }}
+                    >
+                        I build fast, reliable open-source software that powers back end applications.
+                    </p>
+
+                    {/* Social icons */}
+                    <div className="fade-in fade-in-3" style={{ display: "flex", gap: "14px", marginBottom: "36px", alignItems: "center" }}>
+                        <SocialIcon icon={<GitHubIcon style={{ fontSize: 20 }} />} href="https://github.com/davidanukam" />
+                        <SocialIcon icon={<YouTubeIcon style={{ fontSize: 20 }} />} href="https://www.youtube.com/@Duzzenn2" />
+                        <SocialIcon icon={<DiscordIcon />} href="#" />
+                        <SocialIcon icon={<LinkedInIcon style={{ fontSize: 20 }} />} href="https://www.linkedin.com/in/david-anukam/" />
+                        <SocialIcon icon={<EmailIcon style={{ fontSize: 20 }} />} href="mailto:davidanukam72@gmail.com" />
+                        <SocialIcon icon={<PhoneIcon style={{ fontSize: 20 }} />} href="tel:+2269982576" />
+                    </div>
+
+                    {/* Nav */}
+                    <nav className="fade-in fade-in-4" style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                        {NAV_ITEMS.map((item) => (
+                            <button
+                                key={item}
+                                onClick={() => scrollTo(item)}
+                                className={`nav-link ${activeSection === item ? "active" : ""}`}
+                                style={{ background: "none", border: "none", textAlign: "left" }}
+                            >
+                                {item}
+                            </button>
+                        ))}
+                    </nav>
+                </div>
 
                 {/* ── RIGHT CONTENT ── */}
-                <div
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "56px",
-                        paddingTop: isMobile ? "8px" : "64px",
-                        maxWidth: "680px",
-                        margin: "0 auto",
-                        width: "100%",
-                    }}
-                >
-                    {/* Mobile: social icons strip */}
-                    {isMobile && (
-                        <div style={{ paddingBottom: "8px", borderBottom: "1px solid var(--border)" }}>
-                            <p style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: "16px" }}>
-                                I build fast, reliable open-source software that powers back end applications.
-                            </p>
-                            <div style={{ display: "flex", gap: "16px", alignItems: "center", flexWrap: "wrap" }}>
-                                <SocialIcon icon={<GitHubIcon style={{ fontSize: 22 }} />} href="https://github.com/davidanukam" />
-                                <SocialIcon icon={<YouTubeIcon style={{ fontSize: 22 }} />} href="https://www.youtube.com/@Duzzenn2" />
-                                <SocialIcon icon={<DiscordIcon />} href="#" />
-                                <SocialIcon icon={<LinkedInIcon style={{ fontSize: 22 }} />} href="https://www.linkedin.com/in/david-anukam/" />
-                                <SocialIcon icon={<EmailIcon style={{ fontSize: 22 }} />} href="mailto:davidanukam72@gmail.com" />
-                                <SocialIcon icon={<PhoneIcon style={{ fontSize: 22 }} />} href="tel:+2269982576" />
-                            </div>
-                        </div>
-                    )}
+                <div style={{ display: "flex", flexDirection: "column", gap: "64px", paddingTop: "64px", maxWidth: "640px", margin: "0 auto", width: "100%"}}>
 
                     {/* About Me */}
                     <section id="about-me">
@@ -358,6 +281,8 @@ export default function Home() {
                                 </div>
                             ))}
                         </div>
+
+                        {/* Resume button */}
                         <div style={{ marginTop: "20px", display: "flex", justifyContent: "flex-end" }}>
                             <a href="#" className="resume-btn">
                                 View Full Resume (PDF) <OpenInNewIcon style={{ fontSize: 14 }} />
@@ -375,12 +300,7 @@ export default function Home() {
                                 <div
                                     key={proj.name}
                                     className="section-card"
-                                    style={{
-                                        display: "grid",
-                                        gridTemplateColumns: "1fr 64px",
-                                        gap: "16px",
-                                        alignItems: "center",
-                                    }}
+                                    style={{ display: "grid", gridTemplateColumns: "1fr 80px", gap: "16px", alignItems: "center" }}
                                 >
                                     <div>
                                         <p style={{ fontWeight: 700, fontSize: "15px", marginBottom: "4px" }}>{proj.name}</p>
@@ -389,21 +309,21 @@ export default function Home() {
                                     </div>
                                     <div
                                         style={{
-                                            width: 64,
-                                            height: 64,
+                                            width: 72,
+                                            height: 72,
                                             borderRadius: "10px",
                                             background: proj.iconBg,
                                             display: "flex",
                                             alignItems: "center",
                                             justifyContent: "center",
-                                            fontSize: "24px",
+                                            fontSize: "26px",
                                             color: proj.iconColor ?? "var(--accent)",
                                             border: "1px solid var(--border)",
                                             flexShrink: 0,
                                         }}
                                     >
                                         {proj.name === "Murder Run" ? (
-                                            <SportsEsportsIcon style={{ fontSize: 28, color: "#e74c3c" }} />
+                                            <SportsEsportsIcon style={{ fontSize: 30, color: "#e74c3c" }} />
                                         ) : (
                                             <span>{proj.icon}</span>
                                         )}

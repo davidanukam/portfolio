@@ -3,6 +3,17 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --accent: #00e5cc; /* turquoise — swap this hex to recolor everything */
+  --accent-dim: rgba(0, 229, 204, 0.15);
+  --accent-border: rgba(0, 229, 204, 0.4);
+  --bg: #0f0f0f;
+  --bg-card: #1a1a1a;
+  --bg-card-hover: #222222;
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  --text-muted: #666666;
+  --border: #2a2a2a;
 }
 
 @theme inline {
@@ -24,3 +35,157 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+/* Accent utility classes */
+.accent { color: var(--accent); }
+.accent-bg { background-color: var(--accent); }
+.accent-border { border-color: var(--accent); }
+.accent-dim-bg { background-color: var(--accent-dim); }
+
+/* Numbered badge */
+.numbered-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid var(--accent);
+  border-radius: 6px;
+  padding: 12px 12px 12px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.numbered-badge .badge-num {
+  background-color: var(--accent);
+  color: #000;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Tag / chip */
+.tag {
+  display: inline-block;
+  background-color: #222;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  margin: 2px 2px 2px 0;
+}
+
+/* Nav link */
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 6px 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.nav-link::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background-color: var(--text-muted);
+  transition: width 0.2s, background-color 0.2s;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent);
+}
+.nav-link:hover::before,
+.nav-link.active::before {
+  background-color: var(--accent);
+  width: 28px;
+}
+
+/* Section card */
+.section-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  background-color: var(--bg-card);
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.section-card:hover {
+  border-color: var(--accent-border);
+  background-color: var(--bg-card-hover);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeInUp 0.5s ease forwards; }
+.fade-in-1 { animation-delay: 0.1s; opacity: 0; }
+.fade-in-2 { animation-delay: 0.2s; opacity: 0; }
+.fade-in-3 { animation-delay: 0.3s; opacity: 0; }
+.fade-in-4 { animation-delay: 0.4s; opacity: 0; }
+
+/* Resume button */
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.resume-btn:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+/* Footer */
+.footer-text {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+}
+.footer-text strong { color: var(--text-secondary); }
