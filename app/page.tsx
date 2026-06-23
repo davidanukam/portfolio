@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -11,83 +11,163 @@ import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
-const NAV_ITEMS = ["About Me", "Experience", "Projects", "Blog"];
+const NAV_ITEMS = ["About Me", "Experience", "Projects", "YouTube"];
 
 const EXPERIENCE = [
     {
-        company: "Google",
-        role: "Software Engineering Intern (Incoming)",
-        project: "Google (YouTube)",
-        tags: ["Java", "Android", "C++"],
-        dates: "Jun 2026 - Sep 2026",
+        company: "Western Computer Science Undergraduate Society",
+        role: "Back End Developer",
+        project: "Projects Team — API design, back-end frameworks, and real-world solutions",
+        tags: ["API Design", "Back-End Development", "Research"],
+        dates: "Oct 2025 - Apr 2026",
     },
     {
-        company: "VideoLAN",
-        role: "Software Engineering Intern",
-        project: "VLC Media Player",
-        tags: ["C", "C++", "OpenCV", "AI/ML", "Makefile", "Meson"],
-        dates: "Jun 2025 - Sep 2025",
+        company: "Purplr",
+        role: "Chief Technology Officer",
+        project: "Full-stack marketplace application for Western University students",
+        tags: ["React Native", "TypeScript", "Supabase", "Stripe"],
+        dates: "Sep 2025 - Apr 2026",
     },
     {
-        company: "Halvex",
-        role: "Software Developer Intern",
-        project: "Linked Roles Discord Bot",
-        tags: ["JavaScript", "TypeScript", "Express.js", "Node.js", "MongoDB"],
-        dates: "Feb 2023 - June 2023",
+        company: "IALA — Igbo Association of London and Area",
+        role: "Full Stack Intern",
+        project: "Community website with event calendar, donations, and member portal",
+        tags: ["Next.js", "TailwindCSS", "Shadcn", "Stripe", "PayPal"],
+        dates: "Jul 2025 - Sep 2025",
     },
     {
-        company: "Chelmsford Chinese Language School",
-        role: "Java Mentor",
-        project: "Java Introduction Course Teacher",
-        tags: ["Java"],
-        dates: "Sep 2021 - Feb 2022",
+        company: "Western University",
+        role: "Senior Instructor",
+        project: "Western Engineering Outreach — STEM instruction for 1000+ students",
+        tags: ["STEM", "Education", "Lesson Planning"],
+        timeline: [
+            { dates: "Apr 2026 - Present" },
+            { dates: "May 2025 - Aug 2025" },
+        ],
+    },
+    {
+        company: "Western University",
+        role: "Junior Instructor",
+        project: "Classroom STEM instruction, lesson delivery, and student support",
+        tags: ["STEM", "Education", "Critical Thinking"],
+        dates: "Sep 2023 - Aug 2024",
+    },
+    {
+        company: "TechAlley Computers",
+        role: "Junior Developer",
+        project: "Website maintenance, SMS API integration, and automation scripts",
+        tags: ["Python", "PHP", "OpenSCAD", "APIs"],
+        dates: "Jul 2023 - Aug 2023",
     },
 ];
 
 const PROJECTS = [
     {
-        name: "mcav",
-        desc: "A cross-platform Java multimedia framework (130 stars) for building Java media applications.",
-        tags: ["Java", "Spring Boot", "TypeScript", "CI/CD"],
-        icon: "🎬",
+        name: "Real Time Web Search",
+        desc: "A production-deployed, full-stack web application built with Next.js that delivers real-time search results at scale, processing over 1 billion search results.",
+        tags: ["Next.js", "RapidAPI", "PostgreSQL"],
+        icon: "🔍",
         iconBg: "#1a1a2e",
     },
     {
-        name: "yt-media-storage",
-        desc: "A tool to encode/decode files into YouTube videos. Check out the YouTube video linked.",
-        tags: ["C++", "Assembly", "SIMD", "Encryption", "Coding Theory", "Compression"],
+        name: "Purplr",
+        desc: "Leading development of a full-stack marketplace application for university students, utilizing React Native and TypeScript for the frontend with a Spring Boot backend.",
+        tags: ["React Native", "TypeScript", "Spring Boot", "Supabase"],
+        icon: "🛒",
+        iconBg: "#6b21a8",
+        iconColor: "#fff",
+    },
+    {
+        name: "YouTube Channel Analyzer",
+        desc: "A Python-powered analytics tool built with Streamlit that leverages the YouTube Data API v3 to fetch, analyze, and visualize channel performance data.",
+        tags: ["Python", "Streamlit", "YouTube Data API v3"],
         icon: "▶",
         iconBg: "#cc0000",
         iconColor: "#fff",
     },
     {
-        name: "Pulse Media Player",
-        desc: "A robust media player written in 1K lines of C++ code. Check out the YouTube video linked.",
-        tags: ["C++", "OpenGL", "OpenAL", "FFmpeg"],
-        icon: "⏵",
-        iconBg: "#6b21a8",
-        iconColor: "#fff",
+        name: "CSNotes",
+        desc: "A repository of notes to help students ace Computer Science courses at Western University.",
+        tags: ["Python", "Education"],
+        icon: "📚",
+        iconBg: "#1e3a5f",
     },
     {
-        name: "Murder Run",
-        desc: "A Bukkit gamemode for Minecraft servers with over 30k lines of code.",
-        tags: ["Java", "Hibernate", "Bukkit"],
-        icon: "⚔",
-        iconBg: "#1e3a5f",
-        iconColor: "#e74c3c",
+        name: "sand-simulation",
+        desc: "A 2D cellular automata simulation built with Python and Pygame that mimics granular materials like sand in real-time.",
+        tags: ["Python", "Pygame", "Simulation"],
+        icon: "🏖",
+        iconBg: "#b45309",
+    },
+    {
+        name: "RubiksCubeSim2D",
+        desc: "A Python-based Rubik's Cube visualization tool that translates standard cube notation into 2D grid movements.",
+        tags: ["Python", "Visualization"],
+        icon: "🧊",
+        iconBg: "#065f46",
+    },
+    {
+        name: "Keyboard",
+        desc: "A typing-based arcade game inspired by MonkeyType's UI, built in C++.",
+        tags: ["C++", "Game Development"],
+        icon: "⌨",
+        iconBg: "#374151",
+        iconColor: "#fff",
+        useGameIcon: true,
+    },
+    {
+        name: "leetcode-submissions",
+        desc: "A collection of my LeetCode problem submissions and solutions.",
+        tags: ["Python", "Algorithms", "Data Structures"],
+        icon: "💻",
+        iconBg: "#1a1a1a",
+    },
+    {
+        name: "western-wingman",
+        desc: "A TypeScript project built for the Western University community.",
+        tags: ["TypeScript", "Next.js"],
+        icon: "🎓",
+        iconBg: "#4c1d95",
+        iconColor: "#fff",
     },
 ];
 
-const BLOG_POSTS = [
-    {
-        date: "2026-02-19T02:38:53.973Z",
-        readTime: "5 MIN READ",
-        title: "Getting the Hwnd or Xid in JDK 21+",
-        excerpt:
-            "A guide to get the Hwnd or Xid of a Swing component in modern Java versions using Unsafe.",
-        tags: ["Java", "Hwnd", "Xid", "Swing", "Unsafe"],
-    },
-];
+type Project = (typeof PROJECTS)[number];
+
+const PROJECT_SORT_OPTIONS = [
+    { value: "default", label: "Default" },
+    { value: "name-asc", label: "Name (A → Z)" },
+    { value: "name-desc", label: "Name (Z → A)" },
+    { value: "tech-asc", label: "Tech Stack (A → Z)" },
+    { value: "tech-desc", label: "Tech Stack (Z → A)" },
+    { value: "tags-desc", label: "Most Technologies" },
+] as const;
+
+type ProjectSort = (typeof PROJECT_SORT_OPTIONS)[number]["value"];
+
+function sortProjects(projects: Project[], sort: ProjectSort): Project[] {
+    const copy = [...projects];
+    switch (sort) {
+        case "name-asc":
+            return copy.sort((a, b) => a.name.localeCompare(b.name));
+        case "name-desc":
+            return copy.sort((a, b) => b.name.localeCompare(a.name));
+        case "tech-asc":
+            return copy.sort((a, b) =>
+                a.tags.join(", ").localeCompare(b.tags.join(", ")) || a.name.localeCompare(b.name)
+            );
+        case "tech-desc":
+            return copy.sort((a, b) =>
+                b.tags.join(", ").localeCompare(a.tags.join(", ")) || a.name.localeCompare(b.name)
+            );
+        case "tags-desc":
+            return copy.sort((a, b) =>
+                b.tags.length - a.tags.length || a.name.localeCompare(b.name)
+            );
+        default:
+            return copy;
+    }
+}
 
 function NumberedBadge({ num, label }: { num: number; label: string }) {
     return (
@@ -100,6 +180,65 @@ function NumberedBadge({ num, label }: { num: number; label: string }) {
 
 function Tag({ label }: { label: string }) {
     return <span className="tag">{label}</span>;
+}
+
+type ExperienceEntry = (typeof EXPERIENCE)[number];
+
+function ExperienceCard({ exp }: { exp: ExperienceEntry }) {
+    const hasTimeline = "timeline" in exp && !!exp.timeline;
+
+    if (hasTimeline) {
+        return (
+            <div className="section-card">
+                <p style={{ fontWeight: 700, fontSize: "16px", marginBottom: "6px", color: "var(--text-primary)" }}>
+                    {exp.company}
+                </p>
+                <p style={{ color: "var(--accent)", fontSize: "13px", fontWeight: 600, marginBottom: "4px" }}>
+                    {exp.role}
+                </p>
+                <p style={{ color: "var(--text-muted)", fontSize: "13px", marginBottom: "12px" }}>
+                    {exp.project}
+                </p>
+                <div className="exp-timeline-block">
+                    {exp.timeline!.map((entry, index) => (
+                        <div key={entry.dates} className="exp-timeline-entry">
+                            <div className="exp-timeline-rail">
+                                <span
+                                    className={`exp-timeline-dot${index === 0 ? " exp-timeline-dot--current" : ""}`}
+                                    aria-hidden="true"
+                                />
+                                {index < exp.timeline!.length - 1 && (
+                                    <span className="exp-timeline-line" aria-hidden="true" />
+                                )}
+                            </div>
+                            <p className="exp-timeline-dates">{entry.dates}</p>
+                        </div>
+                    ))}
+                </div>
+                <div style={{ marginTop: "10px" }}>
+                    {exp.tags.map((t) => <Tag key={t} label={t} />)}
+                </div>
+            </div>
+        );
+    }
+
+    return (
+        <div className="section-card">
+            <p style={{ fontWeight: 700, fontSize: "16px", marginBottom: "2px", color: "var(--text-primary)" }}>
+                {exp.company}
+            </p>
+            <p style={{ color: "var(--accent)", fontSize: "13px", fontWeight: 600, marginBottom: "2px" }}>
+                {exp.role}
+            </p>
+            <p style={{ color: "var(--text-muted)", fontSize: "13px", marginBottom: "8px" }}>
+                {exp.project}
+            </p>
+            <div style={{ marginBottom: "8px" }}>
+                {exp.tags.map((t) => <Tag key={t} label={t} />)}
+            </div>
+            <p style={{ color: "var(--text-muted)", fontSize: "12px" }}>{exp.dates}</p>
+        </div>
+    );
 }
 
 function SocialIcon({ icon, href }: { icon: React.ReactNode; href?: string }) {
@@ -133,7 +272,13 @@ export default function Home() {
     const [activeSection, setActiveSection] = useState("About Me");
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const [projectSort, setProjectSort] = useState<ProjectSort>("default");
     const menuRef = useRef<HTMLDivElement>(null);
+
+    const sortedProjects = useMemo(
+        () => sortProjects(PROJECTS, projectSort),
+        [projectSort]
+    );
 
     useEffect(() => {
         const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -197,8 +342,8 @@ export default function Home() {
                 >
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                         <div>
-                            <p style={{ fontWeight: 700, fontSize: "15px", fontFamily: "'JetBrains Mono', monospace" }}>David Anukam</p>
-                            <p style={{ color: "var(--accent)", fontSize: "11px", fontWeight: 600 }}>Computer Science Student</p>
+                            <p style={{ fontWeight: 700, fontSize: "16px", fontFamily: "'JetBrains Mono', monospace" }}>David Anukam</p>
+                            <p style={{ color: "var(--accent)", fontSize: "12px", fontWeight: 600 }}>CS + SWE @ UWO</p>
                         </div>
                         <button
                             onClick={() => setMobileMenuOpen((v) => !v)}
@@ -247,7 +392,7 @@ export default function Home() {
                         <h1
                             className="fade-in fade-in-2"
                             style={{
-                                fontSize: "clamp(24px, 3vw, 36px)",
+                                fontSize: "clamp(26px, 3vw, 38px)",
                                 fontWeight: 700,
                                 letterSpacing: "-0.02em",
                                 lineHeight: 1.1,
@@ -258,17 +403,17 @@ export default function Home() {
                         >
                             David Anukam
                         </h1>
-                        <p className="fade-in fade-in-2 accent" style={{ fontSize: "13px", fontWeight: 600, letterSpacing: "0.05em", marginBottom: "16px" }}>
-                            Computer Science Student
+                        <p className="fade-in fade-in-2 accent" style={{ fontSize: "14px", fontWeight: 600, letterSpacing: "0.05em", marginBottom: "16px" }}>
+                            CS + SWE @ UWO | Simulation Engineer In-Training
                         </p>
-                        <p className="fade-in fade-in-3" style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: "20px" }}>
-                            I build fast, reliable open-source software that powers back end applications.
+                        <p className="fade-in fade-in-3" style={{ fontSize: "14px", color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: "20px" }}>
+                            Building projects all day, everyday. Aspiring software engineer passionate about full-stack development, simulation, and AI/ML.
                         </p>
 
                         <div className="fade-in fade-in-3" style={{ display: "flex", gap: "14px", marginBottom: "36px", alignItems: "center", flexWrap: "wrap" }}>
                             <SocialIcon icon={<GitHubIcon style={{ fontSize: 20 }} />} href="https://github.com/davidanukam" />
-                            <SocialIcon icon={<YouTubeIcon style={{ fontSize: 20 }} />} href="https://www.youtube.com/@Duzzenn2" />
-                            <SocialIcon icon={<DiscordIcon />} href="#" />
+                            <SocialIcon icon={<YouTubeIcon style={{ fontSize: 20 }} />} href="https://www.youtube.com/@Duzzenn" />
+                            <SocialIcon icon={<DiscordIcon />} href="https://discord.com/users/994355209654517882" />
                             <SocialIcon icon={<LinkedInIcon style={{ fontSize: 20 }} />} href="https://www.linkedin.com/in/david-anukam/" />
                             <SocialIcon icon={<EmailIcon style={{ fontSize: 20 }} />} href="mailto:davidanukam72@gmail.com" />
                             <SocialIcon icon={<PhoneIcon style={{ fontSize: 20 }} />} href="tel:+2269982576" />
@@ -304,13 +449,13 @@ export default function Home() {
                     {/* Mobile: social icons strip */}
                     {isMobile && (
                         <div style={{ paddingBottom: "8px", borderBottom: "1px solid var(--border)" }}>
-                            <p style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: "16px" }}>
-                                I build fast, reliable open-source software that powers back end applications.
+                            <p style={{ fontSize: "14px", color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: "16px" }}>
+                                Building projects all day, everyday. Aspiring software engineer passionate about full-stack development, simulation, and AI/ML.
                             </p>
                             <div style={{ display: "flex", gap: "16px", alignItems: "center", flexWrap: "wrap" }}>
                                 <SocialIcon icon={<GitHubIcon style={{ fontSize: 22 }} />} href="https://github.com/davidanukam" />
-                                <SocialIcon icon={<YouTubeIcon style={{ fontSize: 22 }} />} href="https://www.youtube.com/@Duzzenn2" />
-                                <SocialIcon icon={<DiscordIcon />} href="#" />
+                                <SocialIcon icon={<YouTubeIcon style={{ fontSize: 22 }} />} href="https://www.youtube.com/@Duzzenn" />
+                                <SocialIcon icon={<DiscordIcon />} href="https://discord.com/users/duzzenn" />
                                 <SocialIcon icon={<LinkedInIcon style={{ fontSize: 22 }} />} href="https://www.linkedin.com/in/david-anukam/" />
                                 <SocialIcon icon={<EmailIcon style={{ fontSize: 22 }} />} href="mailto:davidanukam72@gmail.com" />
                                 <SocialIcon icon={<PhoneIcon style={{ fontSize: 22 }} />} href="tel:+2269982576" />
@@ -323,19 +468,28 @@ export default function Home() {
                         <div style={{ marginBottom: "20px" }}>
                             <NumberedBadge num={2} label="About Me" />
                         </div>
-                        <div style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.85, display: "flex", flexDirection: "column", gap: "14px" }}>
+                        <div style={{ fontSize: "14px", color: "var(--text-secondary)", lineHeight: 1.85, display: "flex", flexDirection: "column", gap: "14px" }}>
                             <p>
-                                I'm a college sophomore from Boston passionate about developing high-end software for the open-source community. I currently study Computer Science at the{" "}
-                                <strong style={{ color: "var(--text-primary)" }}>University of California, Los Angeles</strong>, where I'm taking courses in data structures, algorithms, and systems. You may find me online as{" "}
-                                <code style={{ color: "var(--accent)", background: "var(--accent-dim)", padding: "1px 5px", borderRadius: "3px", fontSize: "12px" }}>PulseBeat02</code>.
+                                I'm an aspiring software engineer and Computer Science student at the{" "}
+                                <strong style={{ color: "var(--text-primary)" }}>University of Western Ontario</strong>, pursuing a Bachelor of Computer Science with a Minor in Software Engineering (Expected April 2028). I'm on the Dean's Honours List with a GPA of 3.78 and currently seeking{" "}
+                                <strong style={{ color: "var(--text-primary)" }}>Summer 2027 internships</strong>. You may find me online as{" "}
+                                <code style={{ color: "var(--accent)", background: "var(--accent-dim)", padding: "1px 5px", borderRadius: "3px", fontSize: "13px" }}>Duzzenn</code>.
                             </p>
                             <p>
-                                I contribute to bring new cool features to the multimedia ecosystem, like integrating computer vision and machine learning into media playback with{" "}
-                                <strong style={{ color: "var(--text-primary)" }}>SAM2</strong> to segment objects and draw faces in real-time.
+                                I specialize in full-stack development with{" "}
+                                <strong style={{ color: "var(--text-primary)" }}>Next.js</strong>,{" "}
+                                <strong style={{ color: "var(--text-primary)" }}>React Native</strong>, and{" "}
+                                <strong style={{ color: "var(--text-primary)" }}>Spring Boot</strong>, backend engineering with{" "}
+                                <strong style={{ color: "var(--text-primary)" }}>FastAPI</strong> and{" "}
+                                <strong style={{ color: "var(--text-primary)" }}>PostgreSQL</strong>, and AI/ML integration using{" "}
+                                <strong style={{ color: "var(--text-primary)" }}>PyTorch</strong> and{" "}
+                                <strong style={{ color: "var(--text-primary)" }}>TensorFlow</strong>. I'm also a Simulation Engineer In-Training with a passion for building interactive simulations and developer tools.
                             </p>
                             <p>
-                                In my spare time, I enjoy playing clarinet in my university orchestra and wind ensemble, and develop my own open-source projects. I also maintain a{" "}
-                                <strong style={{ color: "var(--text-primary)" }}>YouTube channel</strong>, where I discuss some of my projects in further depth.
+                                Beyond code, I've instructed 1000+ students in STEM through Western Engineering Outreach, serve as Back End Developer on the Projects Team at{" "}
+                                <strong style={{ color: "var(--text-primary)" }}>Western CSUS</strong>, and lead development at{" "}
+                                <strong style={{ color: "var(--text-primary)" }}>Purplr</strong>. I also run a{" "}
+                                <strong style={{ color: "var(--text-primary)" }}>YouTube channel</strong> where I share coding projects, CS tutorials, and study streams with a growing community of developers.
                             </p>
                         </div>
                     </section>
@@ -345,21 +499,13 @@ export default function Home() {
                         <div style={{ marginBottom: "20px" }}>
                             <NumberedBadge num={3} label="Experience" />
                         </div>
-                        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                        <div className="card-group">
                             {EXPERIENCE.map((exp) => (
-                                <div key={exp.company} className="section-card">
-                                    <p style={{ fontWeight: 700, fontSize: "15px", marginBottom: "2px" }}>{exp.company}</p>
-                                    <p style={{ color: "var(--accent)", fontSize: "12px", fontWeight: 600, marginBottom: "2px" }}>{exp.role}</p>
-                                    <p style={{ color: "var(--text-muted)", fontSize: "12px", marginBottom: "8px" }}>{exp.project}</p>
-                                    <div style={{ marginBottom: "8px" }}>
-                                        {exp.tags.map((t) => <Tag key={t} label={t} />)}
-                                    </div>
-                                    <p style={{ color: "var(--text-muted)", fontSize: "11px" }}>{exp.dates}</p>
-                                </div>
+                                <ExperienceCard key={`${exp.company}-${exp.role}`} exp={exp} />
                             ))}
                         </div>
                         <div style={{ marginTop: "20px", display: "flex", justifyContent: "flex-end" }}>
-                            <a href="#" className="resume-btn">
+                            <a href="/David_s_CS_Resume.pdf" target="_blank" rel="noreferrer" className="resume-btn">
                                 View Full Resume (PDF) <OpenInNewIcon style={{ fontSize: 14 }} />
                             </a>
                         </div>
@@ -367,11 +513,31 @@ export default function Home() {
 
                     {/* Projects */}
                     <section id="projects">
-                        <div style={{ marginBottom: "20px" }}>
+                        <div className="project-section-header">
                             <NumberedBadge num={4} label="Projects" />
+                            <div className="project-sort-control">
+                                <label htmlFor="project-sort" className="project-sort-label">
+                                    Sort by
+                                </label>
+                                <span className="project-sort-divider" aria-hidden="true" />
+                                <div className="project-sort-select-wrap">
+                                    <select
+                                        id="project-sort"
+                                        className="project-sort-select"
+                                        value={projectSort}
+                                        onChange={(e) => setProjectSort(e.target.value as ProjectSort)}
+                                    >
+                                        {PROJECT_SORT_OPTIONS.map((opt) => (
+                                            <option key={opt.value} value={opt.value}>
+                                                {opt.label}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                            {PROJECTS.map((proj) => (
+                        <div className="card-group">
+                            {sortedProjects.map((proj) => (
                                 <div
                                     key={proj.name}
                                     className="section-card"
@@ -383,8 +549,8 @@ export default function Home() {
                                     }}
                                 >
                                     <div>
-                                        <p style={{ fontWeight: 700, fontSize: "15px", marginBottom: "4px" }}>{proj.name}</p>
-                                        <p style={{ color: "var(--text-secondary)", fontSize: "12px", lineHeight: 1.6, marginBottom: "8px" }}>{proj.desc}</p>
+                                        <p style={{ fontWeight: 700, fontSize: "16px", marginBottom: "4px" }}>{proj.name}</p>
+                                        <p style={{ color: "var(--text-secondary)", fontSize: "13px", lineHeight: 1.6, marginBottom: "8px" }}>{proj.desc}</p>
                                         <div>{proj.tags.map((t) => <Tag key={t} label={t} />)}</div>
                                     </div>
                                     <div
@@ -402,7 +568,7 @@ export default function Home() {
                                             flexShrink: 0,
                                         }}
                                     >
-                                        {proj.name === "Murder Run" ? (
+                                        {proj.useGameIcon ? (
                                             <SportsEsportsIcon style={{ fontSize: 28, color: "#e74c3c" }} />
                                         ) : (
                                             <span>{proj.icon}</span>
@@ -413,40 +579,53 @@ export default function Home() {
                         </div>
                     </section>
 
-                    {/* Blog */}
-                    <section id="blog">
+                    {/* YouTube */}
+                    <section id="youtube">
                         <div style={{ marginBottom: "20px" }}>
-                            <NumberedBadge num={5} label="Blog" />
+                            <NumberedBadge num={5} label="YouTube" />
                         </div>
-                        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                            {BLOG_POSTS.map((post) => (
-                                <div key={post.title} className="section-card">
-                                    <p style={{ color: "var(--text-muted)", fontSize: "10px", letterSpacing: "0.05em", marginBottom: "6px" }}>
-                                        {post.date} · {post.readTime}
-                                    </p>
-                                    <h3 style={{ fontSize: "17px", fontWeight: 700, color: "var(--accent)", marginBottom: "6px", lineHeight: 1.3 }}>
-                                        {post.title}
-                                    </h3>
-                                    <p style={{ color: "var(--text-secondary)", fontSize: "12px", lineHeight: 1.6, marginBottom: "10px" }}>
-                                        {post.excerpt}
-                                    </p>
-                                    <div style={{ marginBottom: "12px" }}>
-                                        {post.tags.map((t) => <Tag key={t} label={t} />)}
-                                    </div>
-                                    <a className="resume-btn" href="#" style={{ fontSize: "10px" }}>
-                                        Read More
-                                    </a>
+                        <div
+                            className="section-card card-solo"
+                            style={{
+                                display: "block",
+                                textDecoration: "none",
+                                color: "inherit",
+                            }}
+                        >
+                            <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "12px" }}>
+                                <div
+                                    style={{
+                                        width: 48,
+                                        height: 48,
+                                        borderRadius: "50%",
+                                        background: "#cc0000",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        flexShrink: 0,
+                                    }}
+                                >
+                                    <YouTubeIcon style={{ fontSize: 28, color: "#fff" }} />
                                 </div>
-                            ))}
+                                <div>
+                                    <p style={{ fontWeight: 700, fontSize: "18px", color: "var(--accent)", marginBottom: "2px" }}>@Duzzenn</p>
+                                    <p style={{ color: "var(--text-muted)", fontSize: "12px" }}>CS + SWE @ UWO | Simulation Dev | AI/ML Enthusiast</p>
+                                </div>
+                            </div>
+                            <p style={{ color: "var(--text-secondary)", fontSize: "13px", lineHeight: 1.7, marginBottom: "14px" }}>
+                                My YouTube channel where I share educational coding content for developers — from Python automation projects and game development showcases like Type Hero, to bite-sized Computer Science tutorials and Study With Me live streams. Join 900+ developers learning alongside me.
+                            </p>
+                            <a href="https://www.youtube.com/@Duzzenn" target="_blank" rel="noreferrer" className="resume-btn" style={{ fontSize: "11px" }}>
+                                Visit Channel <OpenInNewIcon style={{ fontSize: 14 }} />
+                            </a>
                         </div>
                     </section>
 
                     {/* Footer */}
                     <footer style={{ borderTop: "1px solid var(--border)", paddingTop: "24px", paddingBottom: "24px" }}>
                         <p className="footer-text">
-                            Designed with ❤️, developed using <strong>VSCode</strong>.<br />
                             Built using <strong>React</strong>, <strong>Next.js</strong>, <strong>Tailwind</strong>, and{" "}
-                            <strong>Material-UI</strong> components.
+                            <strong>Material-UI</strong> ❤️ (2026)
                         </p>
                     </footer>
                 </div>

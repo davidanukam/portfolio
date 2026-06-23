@@ -15,6 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
     title: "David Anukam",
     description: "David Anukam's Portfolio",
+    icons: {
+        icon: [{ url: "/PortfolioIcon.jpg", type: "image/jpeg" }],
+        shortcut: "/PortfolioIcon.jpg",
+        apple: "/PortfolioIcon.jpg",
+    },
 };
 
 export default function RootLayout({
@@ -25,6 +30,8 @@ export default function RootLayout({
     return (
         <html lang="en">
             <head>
+                <link rel="icon" href="/PortfolioIcon.jpg" type="image/jpeg" />
+                <link rel="apple-touch-icon" href="/PortfolioIcon.jpg" />
                 <link
                     href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
                     rel="stylesheet"
