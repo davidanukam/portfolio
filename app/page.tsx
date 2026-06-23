@@ -7,49 +7,54 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
-import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
-const NAV_ITEMS = ["About Me", "Experience", "Projects", "YouTube"];
+const NAV_ITEMS = ["About Me", "Experience", "Projects", "Other"];
 
 const EXPERIENCE = [
     {
-        company: "Western Computer Science Undergraduate Society",
-        role: "Back End Developer",
-        project: "Projects Team — API design, back-end frameworks, and real-world solutions",
-        tags: ["API Design", "Back-End Development", "Research"],
-        dates: "Oct 2025 - Apr 2026",
-    },
-    {
-        company: "Purplr",
-        role: "Chief Technology Officer",
-        project: "Full-stack marketplace application for Western University students",
-        tags: ["React Native", "TypeScript", "Supabase", "Stripe"],
-        dates: "Sep 2025 - Apr 2026",
-    },
-    {
-        company: "IALA — Igbo Association of London and Area",
-        role: "Full Stack Intern",
-        project: "Community website with event calendar, donations, and member portal",
-        tags: ["Next.js", "TailwindCSS", "Shadcn", "Stripe", "PayPal"],
-        dates: "Jul 2025 - Sep 2025",
-    },
-    {
         company: "Western University",
         role: "Senior Instructor",
-        project: "Western Engineering Outreach — STEM instruction for 1000+ students",
+        project: "Western Engineering Outreach - STEM instruction for 1000+ students",
         tags: ["STEM", "Education", "Lesson Planning"],
+        image: "/ExperienceImages/SeniorInstructorImage.png",
         timeline: [
             { dates: "Apr 2026 - Present" },
             { dates: "May 2025 - Aug 2025" },
         ],
     },
     {
+        company: "Western Computer Science Undergraduate Society",
+        role: "Back End Developer",
+        project: "Projects Team - API design, back-end frameworks, and real-world solutions",
+        tags: ["API Design", "Back-End Development", "Research"],
+        image: "/ExperienceImages/JoblessLiveImage.jpeg",
+        dates: "Oct 2025 - Apr 2026",
+    },
+    {
+        company: "MusTang",
+        role: "Chief Technology Officer",
+        project: "Western University study platform where students browse program-specific course catalogs, organize unit notes, and submit study materials through a Supabase-authenticated upload flow for admin curation.",
+        tags: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
+        image: "/ExperienceImages/MustangImage.png",
+        dates: "Sep 2025 - Apr 2026",
+    },
+    {
+        company: "IALA: Igbo Association of London and Area",
+        role: "Full Stack Intern",
+        project: "Community website with event calendar, donations, and member portal",
+        tags: ["Next.js", "TailwindCSS", "Shadcn", "Stripe", "PayPal"],
+        image: "/ExperienceImages/IALAImage.png",
+        dates: "Jul 2025 - Sep 2025",
+        href: "https://igbolondon.ca/",
+    },
+    {
         company: "Western University",
         role: "Junior Instructor",
         project: "Classroom STEM instruction, lesson delivery, and student support",
         tags: ["STEM", "Education", "Critical Thinking"],
+        image: "/ExperienceImages/JuniorInstructorImage.png",
         dates: "Sep 2023 - Aug 2024",
     },
     {
@@ -57,78 +62,74 @@ const EXPERIENCE = [
         role: "Junior Developer",
         project: "Website maintenance, SMS API integration, and automation scripts",
         tags: ["Python", "PHP", "OpenSCAD", "APIs"],
+        image: "/ExperienceImages/TechAlleyImage.jpeg",
         dates: "Jul 2023 - Aug 2023",
     },
 ];
 
 const PROJECTS = [
     {
-        name: "Real Time Web Search",
-        desc: "A production-deployed, full-stack web application built with Next.js that delivers real-time search results at scale, processing over 1 billion search results.",
-        tags: ["Next.js", "RapidAPI", "PostgreSQL"],
-        icon: "🔍",
-        iconBg: "#1a1a2e",
+        name: "Western Wingman",
+        desc: "A live goose tracker for Western University students. Upload a campus photo for AI-powered flock counting and risk assessment, then check a real-time map of hotspots and nesting zones before you walk.",
+        tags: ["Gemini AI", "Roboflow", "YOLO", "TypeScript", "Next.js"],
+        image: "/ProjectImages/WesternWingmanImage.png",
+        href: "https://western-wingman.vercel.app/",
     },
     {
-        name: "Purplr",
-        desc: "Leading development of a full-stack marketplace application for university students, utilizing React Native and TypeScript for the frontend with a Spring Boot backend.",
-        tags: ["React Native", "TypeScript", "Spring Boot", "Supabase"],
-        icon: "🛒",
-        iconBg: "#6b21a8",
-        iconColor: "#fff",
+        name: "Computer Science Community Notes",
+        desc: "A repository of notes to help students ace Computer Science courses at Western University.",
+        tags: ["Python", "Markdown", "Education"],
+        image: "/ProjectImages/CSNotesImage.png",
+        href: "https://github.com/davidanukam/CSNotes",
+    },
+    {
+        name: "MusTang",
+        desc: "A Next.js study platform for Western University students to browse programs and courses, organize unit notes, and search resources—built with Supabase auth and a contributor upload flow for community-submitted materials.",
+        tags: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
+        image: "/ProjectImages/MustangImage.png",
+        href: "https://github.com/davidanukam/mustang",
+    },
+    {
+        name: "Rubiks Cube 2D Simulation",
+        desc: "A Python-based Rubik's Cube visualization tool that translates standard cube notation into 2D grid movements.",
+        tags: ["Python", "Pygame", "Visualization"],
+        image: "/ProjectImages/RubiksCubeSim2DImage.png",
+        href: "https://github.com/davidanukam/RubiksCubeSim2D",
+    },
+    {
+        name: "LeetCode Submissions",
+        desc: "A collection of my LeetCode problem submissions and solutions.",
+        tags: ["Python", "Algorithms", "Data Structures"],
+        image: "/ProjectImages/LeetcodeSubmissionsImage.png",
+        href: "https://github.com/davidanukam/neetcode-submissions",
+    },
+    {
+        name: "Keybound",
+        desc: "A typing-based arcade game inspired by MonkeyType's UI, built in C++.",
+        tags: ["C++", "Game Development"],
+        image: "/ProjectImages/KeyboundImage.png",
+        href: "https://github.com/davidanukam/Keybound",
+    },
+    {
+        name: "Sand Simulation",
+        desc: "A 2D cellular automata simulation built with Python and Pygame that mimics granular materials like sand in real-time.",
+        tags: ["Python", "Pygame", "Simulation"],
+        image: "/ProjectImages/SandSimulationImage.png",
+        href: "https://github.com/davidanukam/sand-simulation",
     },
     {
         name: "YouTube Channel Analyzer",
         desc: "A Python-powered analytics tool built with Streamlit that leverages the YouTube Data API v3 to fetch, analyze, and visualize channel performance data.",
         tags: ["Python", "Streamlit", "YouTube Data API v3"],
-        icon: "▶",
-        iconBg: "#cc0000",
-        iconColor: "#fff",
+        image: "/ProjectImages/YouTubeChannelAnalyzerImage.jpeg",
+        href: "https://github.com/davidanukam/YouTube-Channel-Analyzer",
     },
     {
-        name: "CSNotes",
-        desc: "A repository of notes to help students ace Computer Science courses at Western University.",
-        tags: ["Python", "Education"],
-        icon: "📚",
-        iconBg: "#1e3a5f",
-    },
-    {
-        name: "sand-simulation",
-        desc: "A 2D cellular automata simulation built with Python and Pygame that mimics granular materials like sand in real-time.",
-        tags: ["Python", "Pygame", "Simulation"],
-        icon: "🏖",
-        iconBg: "#b45309",
-    },
-    {
-        name: "RubiksCubeSim2D",
-        desc: "A Python-based Rubik's Cube visualization tool that translates standard cube notation into 2D grid movements.",
-        tags: ["Python", "Visualization"],
-        icon: "🧊",
-        iconBg: "#065f46",
-    },
-    {
-        name: "Keyboard",
-        desc: "A typing-based arcade game inspired by MonkeyType's UI, built in C++.",
-        tags: ["C++", "Game Development"],
-        icon: "⌨",
-        iconBg: "#374151",
-        iconColor: "#fff",
-        useGameIcon: true,
-    },
-    {
-        name: "leetcode-submissions",
-        desc: "A collection of my LeetCode problem submissions and solutions.",
-        tags: ["Python", "Algorithms", "Data Structures"],
-        icon: "💻",
-        iconBg: "#1a1a1a",
-    },
-    {
-        name: "western-wingman",
-        desc: "A TypeScript project built for the Western University community.",
-        tags: ["TypeScript", "Next.js"],
-        icon: "🎓",
-        iconBg: "#4c1d95",
-        iconColor: "#fff",
+        name: "Real Time Web Search",
+        desc: "A production-deployed, full-stack web application built with Next.js that delivers real-time search results at scale, processing over 1 billion search results.",
+        tags: ["Next.js", "RapidAPI", "PostgreSQL"],
+        image: "/ProjectImages/RealTimeWebSearchImage.jpeg",
+        href: "https://real-time-web-search.vercel.app/",
     },
 ];
 
@@ -182,41 +183,155 @@ function Tag({ label }: { label: string }) {
     return <span className="tag">{label}</span>;
 }
 
+function CardOpenLink({ href }: { href: string }) {
+    return (
+        <a
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+            className="card-open-link"
+            aria-label="Open link"
+        >
+            <OpenInNewIcon style={{ fontSize: 16 }} />
+        </a>
+    );
+}
+
+function CardTitleRow({ title, href }: { title: string; href?: string }) {
+    return (
+        <div className="card-title-row">
+            <p className="card-title">{title}</p>
+            {href && <CardOpenLink href={href} />}
+        </div>
+    );
+}
+
+function CardImageButton({
+    src,
+    alt,
+    onClick,
+}: {
+    src: string;
+    alt: string;
+    onClick: () => void;
+}) {
+    return (
+        <button
+            type="button"
+            className="card-thumbnail-image"
+            onClick={(e) => {
+                e.stopPropagation();
+                onClick();
+            }}
+            aria-label={`View ${alt} screenshot`}
+        >
+            <img src={src} alt={alt} />
+        </button>
+    );
+}
+
+function ImageLightbox({
+    src,
+    alt,
+    onClose,
+}: {
+    src: string;
+    alt: string;
+    onClose: () => void;
+}) {
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === "Escape") onClose();
+        };
+        window.addEventListener("keydown", onKey);
+        return () => {
+            document.body.style.overflow = "";
+            window.removeEventListener("keydown", onKey);
+        };
+    }, [onClose]);
+
+    return (
+        <div
+            className="image-lightbox"
+            onClick={onClose}
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${alt} preview`}
+        >
+            <div className="image-lightbox-content" onClick={(e) => e.stopPropagation()}>
+                <button
+                    type="button"
+                    className="image-lightbox-close"
+                    onClick={onClose}
+                    aria-label="Close preview"
+                >
+                    <CloseIcon style={{ fontSize: 22 }} />
+                </button>
+                <div className="image-lightbox-frame">
+                    <img src={src} alt={alt} className="image-lightbox-img" />
+                </div>
+            </div>
+        </div>
+    );
+}
+
 type ExperienceEntry = (typeof EXPERIENCE)[number];
 
-function ExperienceCard({ exp }: { exp: ExperienceEntry }) {
+function ExperienceCard({
+    exp,
+    onImageClick,
+}: {
+    exp: ExperienceEntry;
+    onImageClick: (src: string, alt: string) => void;
+}) {
     const hasTimeline = "timeline" in exp && !!exp.timeline;
+    const imageAlt = `${exp.company} — ${exp.role}`;
+
+    const imageButton = (
+        <CardImageButton
+            src={exp.image}
+            alt={imageAlt}
+            onClick={() => onImageClick(exp.image, imageAlt)}
+        />
+    );
 
     if (hasTimeline) {
         return (
             <div className="section-card">
-                <p style={{ fontWeight: 700, fontSize: "16px", marginBottom: "6px", color: "var(--text-primary)" }}>
-                    {exp.company}
-                </p>
-                <p style={{ color: "var(--accent)", fontSize: "13px", fontWeight: 600, marginBottom: "4px" }}>
-                    {exp.role}
-                </p>
-                <p style={{ color: "var(--text-muted)", fontSize: "13px", marginBottom: "12px" }}>
-                    {exp.project}
-                </p>
-                <div className="exp-timeline-block">
-                    {exp.timeline!.map((entry, index) => (
-                        <div key={entry.dates} className="exp-timeline-entry">
-                            <div className="exp-timeline-rail">
-                                <span
-                                    className={`exp-timeline-dot${index === 0 ? " exp-timeline-dot--current" : ""}`}
-                                    aria-hidden="true"
-                                />
-                                {index < exp.timeline!.length - 1 && (
-                                    <span className="exp-timeline-line" aria-hidden="true" />
-                                )}
-                            </div>
-                            <p className="exp-timeline-dates">{entry.dates}</p>
+                <CardTitleRow
+                    title={exp.company}
+                    href={"href" in exp ? exp.href : undefined}
+                />
+                <div className="card-media-body">
+                    <div>
+                        <p style={{ color: "var(--accent)", fontSize: "13px", fontWeight: 600, marginBottom: "4px" }}>
+                            {exp.role}
+                        </p>
+                        <p style={{ color: "var(--text-muted)", fontSize: "13px", marginBottom: "12px" }}>
+                            {exp.project}
+                        </p>
+                        <div className="exp-timeline-block">
+                            {exp.timeline!.map((entry, index) => (
+                                <div key={entry.dates} className="exp-timeline-entry">
+                                    <div className="exp-timeline-rail">
+                                        <span
+                                            className={`exp-timeline-dot${index === 0 ? " exp-timeline-dot--current" : ""}`}
+                                            aria-hidden="true"
+                                        />
+                                        {index < exp.timeline!.length - 1 && (
+                                            <span className="exp-timeline-line" aria-hidden="true" />
+                                        )}
+                                    </div>
+                                    <p className="exp-timeline-dates">{entry.dates}</p>
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
-                <div style={{ marginTop: "10px" }}>
-                    {exp.tags.map((t) => <Tag key={t} label={t} />)}
+                        <div style={{ marginTop: "10px" }}>
+                            {exp.tags.map((t) => <Tag key={t} label={t} />)}
+                        </div>
+                    </div>
+                    {imageButton}
                 </div>
             </div>
         );
@@ -224,19 +339,25 @@ function ExperienceCard({ exp }: { exp: ExperienceEntry }) {
 
     return (
         <div className="section-card">
-            <p style={{ fontWeight: 700, fontSize: "16px", marginBottom: "2px", color: "var(--text-primary)" }}>
-                {exp.company}
-            </p>
-            <p style={{ color: "var(--accent)", fontSize: "13px", fontWeight: 600, marginBottom: "2px" }}>
-                {exp.role}
-            </p>
-            <p style={{ color: "var(--text-muted)", fontSize: "13px", marginBottom: "8px" }}>
-                {exp.project}
-            </p>
-            <div style={{ marginBottom: "8px" }}>
-                {exp.tags.map((t) => <Tag key={t} label={t} />)}
+            <CardTitleRow
+                title={exp.company}
+                href={"href" in exp ? exp.href : undefined}
+            />
+            <div className="card-media-body">
+                <div>
+                    <p style={{ color: "var(--accent)", fontSize: "13px", fontWeight: 600, marginBottom: "2px" }}>
+                        {exp.role}
+                    </p>
+                    <p style={{ color: "var(--text-muted)", fontSize: "13px", marginBottom: "8px" }}>
+                        {exp.project}
+                    </p>
+                    <div style={{ marginBottom: "8px" }}>
+                        {exp.tags.map((t) => <Tag key={t} label={t} />)}
+                    </div>
+                    <p style={{ color: "var(--text-muted)", fontSize: "12px" }}>{exp.dates}</p>
+                </div>
+                {imageButton}
             </div>
-            <p style={{ color: "var(--text-muted)", fontSize: "12px" }}>{exp.dates}</p>
         </div>
     );
 }
@@ -273,6 +394,7 @@ export default function Home() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [projectSort, setProjectSort] = useState<ProjectSort>("default");
+    const [previewImage, setPreviewImage] = useState<{ src: string; alt: string } | null>(null);
     const menuRef = useRef<HTMLDivElement>(null);
 
     const sortedProjects = useMemo(
@@ -325,6 +447,13 @@ export default function Home() {
 
     return (
         <div style={{ minHeight: "100vh", backgroundColor: "var(--bg)", color: "var(--text-primary)" }}>
+            {previewImage && (
+                <ImageLightbox
+                    src={previewImage.src}
+                    alt={previewImage.alt}
+                    onClose={() => setPreviewImage(null)}
+                />
+            )}
 
             {/* ── MOBILE TOP NAV BAR ── */}
             {isMobile && (
@@ -471,8 +600,8 @@ export default function Home() {
                         <div style={{ fontSize: "14px", color: "var(--text-secondary)", lineHeight: 1.85, display: "flex", flexDirection: "column", gap: "14px" }}>
                             <p>
                                 I'm an aspiring software engineer and Computer Science student at the{" "}
-                                <strong style={{ color: "var(--text-primary)" }}>University of Western Ontario</strong>, pursuing a Bachelor of Computer Science with a Minor in Software Engineering (Expected April 2028). I'm on the Dean's Honours List with a GPA of 3.78 and currently seeking{" "}
-                                <strong style={{ color: "var(--text-primary)" }}>Summer 2027 internships</strong>. You may find me online as{" "}
+                                <strong style={{ color: "var(--text-primary)" }}>University of Western Ontario</strong>, pursuing a Bachelor of Honours Specialization in Computer Science with a Minor in Software Engineering (Expected April 2028). I'm on the Dean's Honours List with a GPA of 3.78 and currently seeking{" "}
+                                <strong style={{ color: "var(--text-primary)" }}>Summer 2027 internships</strong>. You may also find me online as{" "}
                                 <code style={{ color: "var(--accent)", background: "var(--accent-dim)", padding: "1px 5px", borderRadius: "3px", fontSize: "13px" }}>Duzzenn</code>.
                             </p>
                             <p>
@@ -486,10 +615,10 @@ export default function Home() {
                                 <strong style={{ color: "var(--text-primary)" }}>TensorFlow</strong>. I'm also a Simulation Engineer In-Training with a passion for building interactive simulations and developer tools.
                             </p>
                             <p>
-                                Beyond code, I've instructed 1000+ students in STEM through Western Engineering Outreach, serve as Back End Developer on the Projects Team at{" "}
+                                Beyond code, I've instructed 1000+ students in STEM through Western Engineering Outreach, served as Back End Developer on the Projects Team at{" "}
                                 <strong style={{ color: "var(--text-primary)" }}>Western CSUS</strong>, and lead development at{" "}
-                                <strong style={{ color: "var(--text-primary)" }}>Purplr</strong>. I also run a{" "}
-                                <strong style={{ color: "var(--text-primary)" }}>YouTube channel</strong> where I share coding projects, CS tutorials, and study streams with a growing community of developers.
+                                <strong style={{ color: "var(--text-primary)" }}>MusTang</strong>. I also run a{" "}
+                                <strong style={{ color: "var(--accent)" }}><a href="https://www.youtube.com/@Duzzenn" target="_blank" rel="noreferrer">YouTube channel</a></strong> where I share coding projects, CS tutorials, and study streams with a growing community of developers.
                             </p>
                         </div>
                     </section>
@@ -501,7 +630,11 @@ export default function Home() {
                         </div>
                         <div className="card-group">
                             {EXPERIENCE.map((exp) => (
-                                <ExperienceCard key={`${exp.company}-${exp.role}`} exp={exp} />
+                                <ExperienceCard
+                                    key={`${exp.company}-${exp.role}`}
+                                    exp={exp}
+                                    onImageClick={(src, alt) => setPreviewImage({ src, alt })}
+                                />
                             ))}
                         </div>
                         <div style={{ marginTop: "20px", display: "flex", justifyContent: "flex-end" }}>
@@ -538,51 +671,31 @@ export default function Home() {
                         </div>
                         <div className="card-group">
                             {sortedProjects.map((proj) => (
-                                <div
-                                    key={proj.name}
-                                    className="section-card"
-                                    style={{
-                                        display: "grid",
-                                        gridTemplateColumns: "1fr 64px",
-                                        gap: "16px",
-                                        alignItems: "center",
-                                    }}
-                                >
-                                    <div>
-                                        <p style={{ fontWeight: 700, fontSize: "16px", marginBottom: "4px" }}>{proj.name}</p>
-                                        <p style={{ color: "var(--text-secondary)", fontSize: "13px", lineHeight: 1.6, marginBottom: "8px" }}>{proj.desc}</p>
-                                        <div>{proj.tags.map((t) => <Tag key={t} label={t} />)}</div>
-                                    </div>
-                                    <div
-                                        style={{
-                                            width: 64,
-                                            height: 64,
-                                            borderRadius: "10px",
-                                            background: proj.iconBg,
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                            fontSize: "24px",
-                                            color: proj.iconColor ?? "var(--accent)",
-                                            border: "1px solid var(--border)",
-                                            flexShrink: 0,
-                                        }}
-                                    >
-                                        {proj.useGameIcon ? (
-                                            <SportsEsportsIcon style={{ fontSize: 28, color: "#e74c3c" }} />
-                                        ) : (
-                                            <span>{proj.icon}</span>
-                                        )}
+                                <div key={proj.name} className="section-card project-card">
+                                    <CardTitleRow
+                                        title={proj.name}
+                                        href={"href" in proj ? proj.href : undefined}
+                                    />
+                                    <div className="card-media-body">
+                                        <div>
+                                            <p style={{ color: "var(--text-secondary)", fontSize: "13px", lineHeight: 1.6, marginBottom: "8px" }}>{proj.desc}</p>
+                                            <div>{proj.tags.map((t) => <Tag key={t} label={t} />)}</div>
+                                        </div>
+                                        <CardImageButton
+                                            src={proj.image}
+                                            alt={proj.name}
+                                            onClick={() => setPreviewImage({ src: proj.image, alt: proj.name })}
+                                        />
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </section>
 
-                    {/* YouTube */}
-                    <section id="youtube">
+                    {/* Other */}
+                    <section id="other">
                         <div style={{ marginBottom: "20px" }}>
-                            <NumberedBadge num={5} label="YouTube" />
+                            <NumberedBadge num={5} label="Other" />
                         </div>
                         <div
                             className="section-card card-solo"
@@ -593,20 +706,17 @@ export default function Home() {
                             }}
                         >
                             <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "12px" }}>
-                                <div
+                                <img
+                                    src="/YouTubeLogo.png"
+                                    alt="YouTube"
                                     style={{
                                         width: 48,
                                         height: 48,
-                                        borderRadius: "50%",
-                                        background: "#cc0000",
-                                        display: "flex",
-                                        alignItems: "center",
-                                        justifyContent: "center",
+                                        borderRadius: "15%",
                                         flexShrink: 0,
+                                        objectFit: "contain",
                                     }}
-                                >
-                                    <YouTubeIcon style={{ fontSize: 28, color: "#fff" }} />
-                                </div>
+                                />
                                 <div>
                                     <p style={{ fontWeight: 700, fontSize: "18px", color: "var(--accent)", marginBottom: "2px" }}>@Duzzenn</p>
                                     <p style={{ color: "var(--text-muted)", fontSize: "12px" }}>CS + SWE @ UWO | Simulation Dev | AI/ML Enthusiast</p>
