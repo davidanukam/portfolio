@@ -9,6 +9,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { ThemeToggle } from "./components/ThemeToggle";
 
 const NAV_ITEMS = ["About Me", "Experience", "Projects", "Other"];
 
@@ -23,6 +24,7 @@ const EXPERIENCE = [
             { dates: "Apr 2026 - Present" },
             { dates: "May 2025 - Aug 2025" },
         ],
+        href: "https://www.uwo.ca/index.html",
     },
     {
         company: "Western Computer Science Undergraduate Society",
@@ -31,14 +33,16 @@ const EXPERIENCE = [
         tags: ["API Design", "Back-End Development", "Research"],
         image: "/ExperienceImages/JoblessLiveImage.jpeg",
         dates: "Oct 2025 - Apr 2026",
+        href: "https://www.jobless.live/",
     },
     {
         company: "MusTang",
         role: "Chief Technology Officer",
-        project: "Western University study platform where students browse program-specific course catalogs, organize unit notes, and submit study materials through a Supabase-authenticated upload flow for admin curation.",
+        project: "Aiding Western University students by creating and hosting a platform for them to access all kinds of study material",
         tags: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
         image: "/ExperienceImages/MustangImage.png",
         dates: "Sep 2025 - Apr 2026",
+        href: "https://github.com/davidanukam/mustang",
     },
     {
         company: "IALA: Igbo Association of London and Area",
@@ -56,14 +60,16 @@ const EXPERIENCE = [
         tags: ["STEM", "Education", "Critical Thinking"],
         image: "/ExperienceImages/JuniorInstructorImage.png",
         dates: "Sep 2023 - Aug 2024",
+        href: "https://www.uwo.ca/index.html",
     },
     {
         company: "TechAlley Computers",
-        role: "Junior Developer",
+        role: "Junior Developer Co-op",
         project: "Website maintenance, SMS API integration, and automation scripts",
         tags: ["Python", "PHP", "OpenSCAD", "APIs"],
         image: "/ExperienceImages/TechAlleyImage.jpeg",
         dates: "Jul 2023 - Aug 2023",
+        href: "https://www.facebook.com/techalleyISP/",
     },
 ];
 
@@ -76,11 +82,11 @@ const PROJECTS = [
         href: "https://western-wingman.vercel.app/",
     },
     {
-        name: "Computer Science Community Notes",
-        desc: "A repository of notes to help students ace Computer Science courses at Western University.",
-        tags: ["Python", "Markdown", "Education"],
-        image: "/ProjectImages/CSNotesImage.png",
-        href: "https://github.com/davidanukam/CSNotes",
+        name: "Pomo Fomo",
+        desc: "A calm, native Windows Pomodoro timer built with Tauri and Rust. Live tray countdown, global hotkeys, savable presets, and privacy-first focus analytics with local session history.",
+        tags: ["Tauri", "Rust", "TypeScript", "Vite"],
+        image: "/ProjectImages/PomoFomoImage.png",
+        href: "https://github.com/davidanukam/pomofomo",
     },
     {
         name: "MusTang",
@@ -90,6 +96,13 @@ const PROJECTS = [
         href: "https://github.com/davidanukam/mustang",
     },
     {
+        name: "Computer Science Community Notes",
+        desc: "A repository of notes to help students ace Computer Science courses at Western University.",
+        tags: ["Python", "Markdown", "Education"],
+        image: "/ProjectImages/CSNotesImage.png",
+        href: "https://github.com/davidanukam/CSNotes",
+    },
+    {
         name: "Rubiks Cube 2D Simulation",
         desc: "A Python-based Rubik's Cube visualization tool that translates standard cube notation into 2D grid movements.",
         tags: ["Python", "Pygame", "Visualization"],
@@ -97,16 +110,9 @@ const PROJECTS = [
         href: "https://github.com/davidanukam/RubiksCubeSim2D",
     },
     {
-        name: "LeetCode Submissions",
-        desc: "A collection of my LeetCode problem submissions and solutions.",
-        tags: ["Python", "Algorithms", "Data Structures"],
-        image: "/ProjectImages/LeetcodeSubmissionsImage.png",
-        href: "https://github.com/davidanukam/neetcode-submissions",
-    },
-    {
         name: "Keybound",
-        desc: "A typing-based arcade game inspired by MonkeyType's UI, built in C++.",
-        tags: ["C++", "Game Development"],
+        desc: "A typing-based arcade game inspired by Maligna Kodera, built in C++.",
+        tags: ["C++", "Game Development", "Typing"],
         image: "/ProjectImages/KeyboundImage.png",
         href: "https://github.com/davidanukam/Keybound",
     },
@@ -118,18 +124,11 @@ const PROJECTS = [
         href: "https://github.com/davidanukam/sand-simulation",
     },
     {
-        name: "YouTube Channel Analyzer",
-        desc: "A Python-powered analytics tool built with Streamlit that leverages the YouTube Data API v3 to fetch, analyze, and visualize channel performance data.",
-        tags: ["Python", "Streamlit", "YouTube Data API v3"],
-        image: "/ProjectImages/YouTubeChannelAnalyzerImage.jpeg",
-        href: "https://github.com/davidanukam/YouTube-Channel-Analyzer",
-    },
-    {
-        name: "Real Time Web Search",
-        desc: "A production-deployed, full-stack web application built with Next.js that delivers real-time search results at scale, processing over 1 billion search results.",
-        tags: ["Next.js", "RapidAPI", "PostgreSQL"],
-        image: "/ProjectImages/RealTimeWebSearchImage.jpeg",
-        href: "https://real-time-web-search.vercel.app/",
+        name: "LeetCode Submissions",
+        desc: "A collection of my LeetCode problem submissions and solutions.",
+        tags: ["Python", "Algorithms", "Data Structures"],
+        image: "/ProjectImages/LeetcodeSubmissionsImage.png",
+        href: "https://github.com/davidanukam/neetcode-submissions",
     },
 ];
 
@@ -300,13 +299,13 @@ function ExperienceCard({
         return (
             <div className="section-card">
                 <CardTitleRow
-                    title={exp.company}
+                    title={exp.role}
                     href={"href" in exp ? exp.href : undefined}
                 />
                 <div className="card-media-body">
                     <div>
                         <p style={{ color: "var(--accent)", fontSize: "13px", fontWeight: 600, marginBottom: "4px" }}>
-                            {exp.role}
+                            {exp.company}
                         </p>
                         <p style={{ color: "var(--text-muted)", fontSize: "13px", marginBottom: "12px" }}>
                             {exp.project}
@@ -340,13 +339,13 @@ function ExperienceCard({
     return (
         <div className="section-card">
             <CardTitleRow
-                title={exp.company}
+                title={exp.role}
                 href={"href" in exp ? exp.href : undefined}
             />
             <div className="card-media-body">
                 <div>
                     <p style={{ color: "var(--accent)", fontSize: "13px", fontWeight: 600, marginBottom: "2px" }}>
-                        {exp.role}
+                        {exp.company}
                     </p>
                     <p style={{ color: "var(--text-muted)", fontSize: "13px", marginBottom: "8px" }}>
                         {exp.project}
@@ -463,7 +462,7 @@ export default function Home() {
                         position: "sticky",
                         top: 0,
                         zIndex: 100,
-                        backgroundColor: "rgba(15,15,15,0.97)",
+                        backgroundColor: "var(--header-bg)",
                         backdropFilter: "blur(10px)",
                         borderBottom: "1px solid var(--border)",
                         padding: "12px 20px",
@@ -474,12 +473,15 @@ export default function Home() {
                             <p style={{ fontWeight: 700, fontSize: "16px", fontFamily: "'JetBrains Mono', monospace" }}>David Anukam</p>
                             <p style={{ color: "var(--accent)", fontSize: "12px", fontWeight: 600 }}>CS + SWE @ UWO</p>
                         </div>
-                        <button
-                            onClick={() => setMobileMenuOpen((v) => !v)}
-                            style={{ background: "none", border: "none", color: "var(--text-primary)", cursor: "pointer", display: "flex" }}
-                        >
-                            {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
-                        </button>
+                        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                            <ThemeToggle />
+                            <button
+                                onClick={() => setMobileMenuOpen((v) => !v)}
+                                style={{ background: "none", border: "none", color: "var(--text-primary)", cursor: "pointer", display: "flex" }}
+                            >
+                                {mobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+                            </button>
+                        </div>
                     </div>
 
                     {mobileMenuOpen && (
@@ -514,8 +516,9 @@ export default function Home() {
                 {/* ── LEFT SIDEBAR (desktop only) ── */}
                 {!isMobile && (
                     <div style={{ position: "sticky", top: "104px" }}>
-                        <div className="fade-in fade-in-1 mb-6">
+                        <div className="fade-in fade-in-1 mb-6" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                             <NumberedBadge num={1} label="Contact" />
+                            <ThemeToggle />
                         </div>
 
                         <h1
@@ -615,10 +618,10 @@ export default function Home() {
                                 <strong style={{ color: "var(--text-primary)" }}>TensorFlow</strong>. I'm also a Simulation Engineer In-Training with a passion for building interactive simulations and developer tools.
                             </p>
                             <p>
-                                Beyond code, I've instructed 1000+ students in STEM through Western Engineering Outreach, served as Back End Developer on the Projects Team at{" "}
+                                Beyond code, I've instructed 1000+ students in STEM through Western Engineering Outreach, served as a Back End Developer on the Projects Team at{" "}
                                 <strong style={{ color: "var(--text-primary)" }}>Western CSUS</strong>, and lead development at{" "}
                                 <strong style={{ color: "var(--text-primary)" }}>MusTang</strong>. I also run a{" "}
-                                <strong style={{ color: "var(--accent)" }}><a href="https://www.youtube.com/@Duzzenn" target="_blank" rel="noreferrer">YouTube channel</a></strong> where I share coding projects, CS tutorials, and study streams with a growing community of developers.
+                                <strong style={{ color: "var(--accent)", textDecoration: "underline" }}><a href="https://www.youtube.com/@Duzzenn" target="_blank" rel="noreferrer">YouTube channel</a></strong> where I share coding projects, CS tutorials, and study streams with a growing community of developers.
                             </p>
                         </div>
                     </section>
@@ -639,7 +642,7 @@ export default function Home() {
                         </div>
                         <div style={{ marginTop: "20px", display: "flex", justifyContent: "flex-end" }}>
                             <a href="/David_s_CS_Resume.pdf" target="_blank" rel="noreferrer" className="resume-btn">
-                                View Full Resume (PDF) <OpenInNewIcon style={{ fontSize: 14 }} />
+                                [Comming Soon] View Full Resume (PDF) <OpenInNewIcon style={{ fontSize: 14 }} />
                             </a>
                         </div>
                     </section>

@@ -1,0 +1,209 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+\usepackage[margin=1.4cm]{geometry}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.15in}
+ \addtolength{\textwidth}{0.3in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{0pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}\vspace{0pt}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Large \scshape David Anukam} \\[2mm]
+    \footnotesize \raisebox{-0.1\height}
+    \faPhone\ \underline{(226) 998-2576} ~
+    {\faEnvelope\  \underline{davidanukam72@gmail.com}} ~
+    {\faLinkedin\ \underline{\href{https://www.linkedin.com/in/david-anukam/}{linkedin.com/in/david-anukam}}} \\ ~
+    {\faGithub\ \underline{\href{https://github.com/davidanukam}{github.com/davidanukam}}} ~
+    {\faBriefcase\ \underline{\href{https://davidanukam.vercel.app/}{portfolio-davidanukam}}}
+    \vspace{-8pt}
+\end{center}
+
+ %-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Western Ontario}{Expected Graduation: April 2028}
+      {Bachelor of Computer Science | Minor in Software Engineering
+      }{London, Ontario}
+  \resumeSubHeadingListEnd
+    \resumeItemListStart
+        \resumeItem {Deans Honours List | \textbf{GPA: 3.78}}
+        \vspace{-7pt}
+        \resumeItem {Courses: Data Structures \& Algorithms, Software Engineering, Computer Architecture, Operating Systems, Discrete Structures, Statistical Science}
+    \resumeItemListEnd
+    \vspace{-12pt}
+%-----------Experience---------------
+\section{Work Experience}
+    \resumeSubHeadingListStart
+            \resumeSubheading{Western Computer Science Undergraduate Society}{Oct 2025 -- Apr 2026}{Back End Developer $|$ \emph{\href{https://www.jobless.live/}{Website}} $|$ \emph{\href{https://github.com/Western-CSUS-2025-2026/CSUS-Project-25-26}{Source Code}}}{London, Ontario}
+                \resumeItemListStart
+                    \resumeItem{Built a production-grade \textbf{RESTful API} with \textbf{FastAPI}, \textbf{SQLAlchemy}, and \textbf{PostgreSQL 15}, modeling \textbf{10+} entities with \textbf{Alembic} migrations and \textbf{Pydantic v2} validation}
+                    \resumeItem{Implemented stateless \textbf{JWT auth} with refresh tokens, \textbf{CSRF} protection, \textbf{PBKDF2-SHA256} hashing, rate limiting, and SMTP throttling}
+                    \resumeItem{Integrated \textbf{TwelveLabs} video AI via async webhooks for interview scoring and \textbf{LLM} feedback; secured with \textbf{HMAC-SHA256} and \textbf{RSA/X.509} verification}
+                    \resumeItem{Containerized with \textbf{Docker} and automated \textbf{CI/CD} via GitHub Actions with lint gates, \textbf{GHCR} image pushes, and self-hosted deployments}
+                \resumeItemListEnd
+            \resumeSubheading{IALA - Igbo Association of London and Area}{Jul 2025 -- Aug 2025}{Full Stack Intern $|$ \emph{\href{https://igbolondon.ca/}{Website}} $|$ \emph{\href{https://github.com/igbolondon/iala}{Source Code}}}{London, Ontario}
+                \resumeItemListStart
+                    \resumeItem{Designed and developed a \textbf{fully responsive}, full-featured community website using \textbf{Next.js}, \textbf{TailwindCSS}, and \textbf{Vite}}
+                    \resumeItem{Implemented a \textbf{dynamic event calendar} with RSVP, \textbf{user portal}, \textbf{Stripe/PayPal} donations, newsletter, gallery, blog, and downloadable resources}
+                    \resumeItem{Collaborated with \textbf{stakeholders} to define requirements and \textbf{shipped the website} within scope and on schedule}
+                    \resumeItemListEnd
+            \resumeSubheading{Western Engineering Outreach}{Jul 2025 -- Aug 2025}{Senior Instructor}{London, Ontario}
+                \resumeItemListStart
+                    \resumeItem{Instructed \textbf{1000+} students as a Homeroom teacher, fostering hands-on \textbf{STEM learning}}
+                    \resumeItem{Designed and delivered \textbf{5+} daily \textbf{STEM lesson plans}, ensuring alignment with learning objectives}
+                    \resumeItem{Managed \textbf{classroom dynamics}, encouraged \textbf{critical thinking}, and fostered an engaging \textbf{learning environment}}
+                    \resumeItemListEnd
+    \resumeSubHeadingListEnd
+    \vspace{-12pt}
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+     \resumeProjectHeading
+            {\textbf{{Western Wingman}} $|$ \emph{\href{https://western-wingman.vercel.app/}{Website}{ $|$ }\href{https://github.com/davidanukam/western-wingman}{Source Code}}}{Gemini AI $|$ Roboflow $|$ YOLO $|$ Next.js}
+            \\[3mm]
+          \resumeItemListStart
+            \resumeItem{Built an \textbf{AI-powered} goose reporting pipeline using \textbf{Roboflow YOLO} and \textbf{Google Gemini} to count flocks and assess nesting/aggression risk from campus photos}
+            \resumeItem{Developed a real-time campus safety map with \textbf{MapLibre GL} heatmaps and \textbf{Supabase Realtime}, plus an email-moderated workflow with \textbf{HMAC}-signed approvals}
+          \resumeItemListEnd
+ \vspace{-24pt}
+ \resumeProjectHeading
+{\textbf{{Pomo Fomo}} $|$ \emph{\href{https://github.com/davidanukam/pomofomo}{Source Code}} $|$ \emph{Native Windows Desktop App}}{Tauri $|$ Rust $|$ TypeScript $|$ Vite}
+\\[3mm]
+\resumeItemListStart
+\resumeItem{Built a native \textbf{Windows Pomodoro timer} with \textbf{Tauri 2} (Rust) and \textbf{Vite/TypeScript}, featuring dual-window design and live system-tray countdown}
+\resumeItem{Implemented global hotkeys, minimize-to-tray, login autostart, and privacy-first local analytics with \textbf{Win32} foreground app tracking and focus-time charts}
+\resumeItemListEnd
+ \vspace{-22pt}
+    \resumeProjectHeading
+            {\textbf{{MusTang}} $|$ \emph{\href{https://github.com/davidanukam/mustang}{Source Code}}}{Next.js $|$ TypeScript $|$ Supabase}
+            \\[3mm]
+          \resumeItemListStart
+            \resumeItem{Led development of \textbf{MusTang}, a study platform for Western students to browse programs, courses, and unit notes across \textbf{20} academic faculties}
+            \resumeItem{Implemented \textbf{Supabase Auth} with email/password and Google OAuth, cookie-based SSR sessions, and \textbf{Next.js} middleware for protected routes}
+            \resumeItem{Built a statically generated course catalog with \textbf{Next.js SSG} spanning program and course routes, including a curated CS catalog}
+            \resumeItem{Shipped an authenticated upload pipeline for notes, videos, and assignments via API with admin email review and curation}
+          \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-24pt}
+%-----------LEADERSHIP-----------
+\section{Leadership}
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+                   \resumeProjectHeading
+            {\textbf{{Duzzenn}} $|$\emph{{\href{https://www.youtube.com/@Duzzenn}{ YouTube $|$}\href{https://www.instagram.com/david_anukam/}{ Instagram}}}}{Mar 2021 -- Present}
+            \\[3mm]
+          \resumeItemListStart
+            \resumeItem{Created educational coding content for \textbf{900+} developers, with \textbf{50,000+} impressions (and counting)}
+            \resumeItem{Delivered coding advice on topics such as \textbf{artificial intelligence}, \textbf{computer science}, and \textbf{software as a service}}
+          \resumeItemListEnd
+          \resumeSubHeadingListEnd
+ \vspace{-12pt}
+  %-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python, Java, Rust, SQL, HTML5, CSS, JavaScript, TypeScript} \\[1mm]
+     \textbf{Developer Tools}{: Visual Studio Code, Git, GitHub, Docker, Trello, Supabase} \\[1mm]
+     \textbf{Libraries/Frameworks}{: FastAPI, PyTorch, TensorFlow, ReactJS, PostgreSQL, NextJS, Tauri} \\ [1mm]
+    }}
+ \end{itemize}
+ \vspace{-16pt}
+ \vspace{3pt}
+\vspace{2pt}
+
+\vspace{-15pt}
+
+
+
+\end{document}

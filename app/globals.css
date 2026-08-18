@@ -3,15 +3,17 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-accent: #E50000;
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 :root,
-html {
-  --background: #ffffff;
-  --foreground: #171717;
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background: #0a0a0a;
+  --foreground: #ededed;
 
   --accent: #E50000;
   --accent-dim: rgba(229, 0, 0, 0.15);
@@ -19,21 +21,75 @@ html {
   --accent-glow: rgba(229, 0, 0, 0.35);
   --tag-bg: #3a0808;
   --tag-text: #ff8a8a;
+  --tag-border: rgba(229, 0, 0, 0.25);
   --bg: #0f0f0f;
   --bg-card: #1a1a1a;
   --bg-card-hover: #222222;
+  --header-bg: rgba(15, 15, 15, 0.97);
   --text-primary: #ffffff;
   --text-secondary: #aaaaaa;
   --text-muted: #666666;
   --border: #2a2a2a;
   --border-card: #4a1010;
+  --thumbnail-border: rgba(255, 255, 255, 0.35);
+  --lightbox-overlay: rgba(0, 0, 0, 0.9);
+  --lightbox-frame-border: rgba(255, 255, 255, 0.4);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+
+    --background: #FAF8F3;
+    --foreground: #1a1a1a;
+
+    --accent: #005fe5;
+    --accent-dim: rgba(0, 95, 229, 0.12);
+    --accent-border: rgba(0, 95, 229, 0.4);
+    --accent-glow: rgba(0, 95, 229, 0.25);
+    --tag-bg: #e8f0ff;
+    --tag-text: #005fe5;
+    --tag-border: rgba(0, 95, 229, 0.25);
+    --bg: #FAF8F3;
+    --bg-card: #F0EDE6;
+    --bg-card-hover: #E8E4DC;
+    --header-bg: rgba(250, 248, 243, 0.97);
+    --text-primary: #1a1a1a;
+    --text-secondary: #444444;
+    --text-muted: #777777;
+    --border: #ddd8cf;
+    --border-card: #b8cce8;
+    --thumbnail-border: rgba(0, 0, 0, 0.2);
+    --lightbox-overlay: rgba(0, 0, 0, 0.75);
+    --lightbox-frame-border: rgba(0, 0, 0, 0.25);
   }
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --background: #FAF8F3;
+  --foreground: #1a1a1a;
+
+  --accent: #005fe5;
+  --accent-dim: rgba(0, 95, 229, 0.12);
+  --accent-border: rgba(0, 95, 229, 0.4);
+  --accent-glow: rgba(0, 95, 229, 0.25);
+  --tag-bg: #e8f0ff;
+  --tag-text: #005fe5;
+  --tag-border: rgba(0, 95, 229, 0.25);
+  --bg: #FAF8F3;
+  --bg-card: #F0EDE6;
+  --bg-card-hover: #E8E4DC;
+  --header-bg: rgba(250, 248, 243, 0.97);
+  --text-primary: #1a1a1a;
+  --text-secondary: #444444;
+  --text-muted: #777777;
+  --border: #ddd8cf;
+  --border-card: #b8cce8;
+  --thumbnail-border: rgba(0, 0, 0, 0.2);
+  --lightbox-overlay: rgba(0, 0, 0, 0.75);
+  --lightbox-frame-border: rgba(0, 0, 0, 0.25);
 }
 
 body {
@@ -101,7 +157,7 @@ body {
   display: inline-block;
   background-color: var(--tag-bg);
   color: var(--tag-text);
-  border: 1px solid rgba(229, 0, 0, 0.25);
+  border: 1px solid var(--tag-border);
   border-radius: 4px;
   padding: 3px 9px;
   font-size: 12px;
@@ -206,7 +262,7 @@ body {
   width: clamp(120px, 28vw, 192px);
   aspect-ratio: 16 / 9;
   padding: 3px;
-  border: 2px dashed rgba(255, 255, 255, 0.35);
+  border: 2px dashed var(--thumbnail-border);
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
@@ -240,7 +296,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: rgba(0, 0, 0, 0.9);
+  background: var(--lightbox-overlay);
   backdrop-filter: blur(8px);
   animation: lightbox-fade-in 0.2s ease;
 }
@@ -257,7 +313,7 @@ body {
 }
 
 .image-lightbox-frame {
-  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border: 2px dashed var(--lightbox-frame-border);
   border-radius: 14px;
   padding: 4px;
   background: var(--bg-card);
@@ -499,7 +555,6 @@ body {
   padding: 0 20px 0 0;
   min-width: 168px;
   outline: none;
-  color-scheme: dark;
 }
 
 .project-sort-select:hover {
@@ -537,3 +592,24 @@ body {
   text-align: center;
 }
 .footer-text strong { color: var(--text-secondary); }
+
+/* Theme toggle */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent-border);
+  background-color: var(--bg-card-hover);
+}
