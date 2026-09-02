@@ -624,6 +624,11 @@ export default function Home() {
                                 <strong style={{ color: "var(--accent)", textDecoration: "underline" }}><a href="https://www.youtube.com/@Duzzenn" target="_blank" rel="noreferrer">YouTube channel</a></strong> where I share coding projects, CS tutorials, and study streams with a growing community of developers.
                             </p>
                         </div>
+                        <div style={{ marginTop: "20px", display: "flex", justifyContent: "flex-start" }}>
+                            <a href="/David_CS_Resume_New.pdf" target="_blank" rel="noreferrer" className="resume-btn">
+                                View Full Resume (PDF) <OpenInNewIcon style={{ fontSize: 14 }} />
+                            </a>
+                        </div>
                     </section>
 
                     {/* Experience */}
@@ -639,11 +644,6 @@ export default function Home() {
                                     onImageClick={(src, alt) => setPreviewImage({ src, alt })}
                                 />
                             ))}
-                        </div>
-                        <div style={{ marginTop: "20px", display: "flex", justifyContent: "flex-end" }}>
-                            <a href="/David_s_CS_Resume.pdf" target="_blank" rel="noreferrer" className="resume-btn">
-                                [Comming Soon] View Full Resume (PDF) <OpenInNewIcon style={{ fontSize: 14 }} />
-                            </a>
                         </div>
                     </section>
 

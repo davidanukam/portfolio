@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.6)  2 SEP 2026 16:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.6)  2 SEP 2026 17:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -592,7 +592,7 @@ Package rerunfilecheck Info: File `David_CS_Resume_New.out' has not changed.
 Here is how much of TeX's memory you used:
  14716 strings out of 467867
  255510 string characters out of 5418335
- 700556 words of memory out of 5000000
+ 701556 words of memory out of 5000000
  43423 multiletter control sequences out of 15000+600000
  635152 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -610,7 +610,7 @@ cm/cmcsc10.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public
 s/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/david/AppData/Local/Programs/MiK
 TeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/david/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on David_CS_Resume_New.pdf (1 page, 160552 bytes).
+Output written on David_CS_Resume_New.pdf (1 page, 160778 bytes).
 PDF statistics:
  113 PDF objects out of 1000 (max. 8388607)
  7 named destinations out of 1000 (max. 500000)
