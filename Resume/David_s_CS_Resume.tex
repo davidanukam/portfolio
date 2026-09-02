@@ -16,7 +16,7 @@
 \setlength{\multicolsep}{-3.0pt}
 \setlength{\columnsep}{-1pt}
 \input{glyphtounicode}
-\usepackage[margin=1.4cm]{geometry}
+\usepackage[top=1.15cm,bottom=0.95cm,left=1.2cm,right=1.2cm]{geometry}
 
 
 \pagestyle{fancy}
@@ -37,8 +37,8 @@
 
 % Sections formatting
 \titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large\bfseries
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+  \vspace{-2pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-3pt}]
 
 % Ensure that generate pdf is machine readable/ATS parsable
 \pdfgentounicode=1
@@ -58,11 +58,11 @@
 }
 
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
+  \vspace{-1pt}\item
     \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & \textbf{\small #2} \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{1.5pt}
 }
 
 \newcommand{\resumeSubSubheading}[2]{
@@ -76,22 +76,27 @@
     \item
     \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
       \small#1 & \textbf{\small #2}\\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{0.5pt}
 }
 
 \newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
 
 \renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\setlist[itemize]{itemsep=0.4pt, parsep=0pt, topsep=0.3pt, partopsep=0pt}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}\vspace{0pt}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}, itemsep=2pt, parsep=0pt, topsep=0pt, partopsep=0pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{0pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=0.6pt, parsep=0pt, topsep=0.4pt, partopsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-1pt}}
 
 
 
 \begin{document}
+\renewcommand{\normalsize}{\fontsize{10}{11.15}\selectfont}
+\renewcommand{\small}{\fontsize{9}{10.3}\selectfont}
+\normalsize
+\enlargethispage{28pt}
 
 %----------HEADING----------
 \begin{center}
@@ -115,94 +120,91 @@
   \resumeSubHeadingListEnd
     \resumeItemListStart
         \resumeItem {Earned \textbf{Dean's Honours List} standing at a \textbf{3.78 GPA} in Computer Science with a Software Engineering minor}
-        \vspace{-7pt}
-        \resumeItem {Built CS foundations through Data Structures \& Algorithms, Software Engineering, Computer Architecture, Operating Systems, Discrete Structures, and Statistical Science}
+        \resumeItem {Built CS foundations through Data Structures \& Algorithms, Software Engineering, Computer Architecture, Operating Systems, and Discrete Structures}
     \resumeItemListEnd
-    \vspace{-12pt}
+    \vspace{-8pt}
 %-----------Experience---------------
 \section{Work Experience}
     \resumeSubHeadingListStart
             \resumeSubheading{Western Computer Science Undergraduate Society}{Oct 2025 -- Apr 2026}{Back End Developer $|$ \emph{\href{https://www.jobless.live/}{Website}} $|$ \emph{\href{https://github.com/Western-CSUS-2025-2026/CSUS-Project-25-26}{Source Code}}}{London, Ontario}
+            \\[1mm]
                 \resumeItemListStart
                     \resumeItem{Shipped a production \textbf{REST API} for \textbf{jobless.live} by modeling \textbf{10+} entities with \textbf{FastAPI}, \textbf{SQLAlchemy}, \textbf{PostgreSQL 15}, \textbf{Alembic} migrations, and \textbf{Pydantic v2}}
                     \resumeItem{Hardened stateless sessions through \textbf{JWT} refresh tokens, \textbf{CSRF} protection, \textbf{PBKDF2-SHA256} hashing, rate limiting, and SMTP throttling}
                     \resumeItem{Automated interview scoring and \textbf{LLM} feedback by integrating \textbf{TwelveLabs} over async webhooks, verified with \textbf{HMAC-SHA256} and \textbf{RSA/X.509}}
                     \resumeItem{Cut release toil by containerizing with \textbf{Docker} and running \textbf{GitHub Actions} lint gates, \textbf{GHCR} image pushes, and self-hosted deploys}
                 \resumeItemListEnd
+ \vspace{2pt}
             \resumeSubheading{IALA - Igbo Association of London and Area}{Jul 2025 -- Aug 2025}{Full Stack Intern $|$ \emph{\href{https://igbolondon.ca/}{Website}} $|$ \emph{\href{https://github.com/igbolondon/iala}{Source Code}}}{London, Ontario}
+            \\[1mm]
                 \resumeItemListStart
                     \resumeItem{Launched a \textbf{fully responsive} community website for \textbf{igbolondon.ca} using \textbf{Next.js} and \textbf{TailwindCSS}}
                     \resumeItem{Enabled events, giving, and member access through a dynamic calendar with \textbf{RSVP}, a \textbf{user portal}, \textbf{Stripe/PayPal} donations, newsletter, gallery, and blog}
                     \resumeItem{Delivered on schedule by working with \textbf{stakeholders} to lock requirements and ship within scope}
                     \resumeItemListEnd
+ \vspace{2pt}
             \resumeSubheading{Western Engineering Outreach}{Jul 2025 -- Aug 2025}{Senior Instructor}{London, Ontario}
+            \\[1mm]
                 \resumeItemListStart
                     \resumeItem{Taught \textbf{1000+} students as a homeroom instructor through daily hands-on \textbf{STEM} sessions}
                     \resumeItem{Kept \textbf{5+} daily lessons on target by designing \textbf{STEM} plans aligned to learning objectives}
                     \resumeItem{Held an engaging classroom by managing group dynamics and prompting \textbf{critical thinking}}
                     \resumeItemListEnd
     \resumeSubHeadingListEnd
-    \vspace{-12pt}
+    \vspace{-6pt}
 
 %-----------PROJECTS-----------
 \section{Projects}
-    \vspace{-5pt}
     \resumeSubHeadingListStart
      \resumeProjectHeading
             {\textbf{{SubTrack}} $|$ \emph{\href{https://subtrackers.vercel.app/}{Website}{ $|$ }\href{https://github.com/davidanukam/subtrack}{Source Code}}}{Next.js $|$ Supabase $|$ Zod $|$ Chrome Extension}
-            \\[4mm]
+            \\[1mm]
           \resumeItemListStart
-            \resumeItem{Shipped a multi-workspace subscription tracker (web + Chrome extension) using \textbf{Next.js}, \textbf{Supabase Auth}, team invites, and \textbf{Zod}-validated APIs}
+            \resumeItem{Shipped a multi-workspace subscription tracker (web + Chrome extension) with \textbf{Next.js}, \textbf{Supabase Auth}, team invites, and \textbf{Zod}-validated APIs}
             \resumeItem{Linked the extension to accounts through \textbf{SHA-256} one-time pairing codes (5-min TTL) and a one-shot token-exchange RPC}
             \resumeItem{Logged \textbf{Stripe/PayPal} checkouts into workspaces by detecting on-page billing details through a bearer-token API}
           \resumeItemListEnd
- \vspace{-6pt}
+ \vspace{2pt}
  \resumeProjectHeading
 {\textbf{{Western Wingman}} $|$ \emph{\href{https://western-wingman.vercel.app/}{Website}{ $|$ }\href{https://github.com/davidanukam/western-wingman}{Source Code}}}{Gemini AI $|$ Roboflow $|$ YOLO $|$ Next.js}
-\\[4mm]
+\\[1mm]
 \resumeItemListStart
 \resumeItem{Counted campus goose flocks and scored nesting/aggression risk from photos using \textbf{Roboflow YOLO} and \textbf{Google Gemini}}
 \resumeItem{Kept a live safety map accurate after hashed, expiring email approvals using \textbf{MapLibre GL} heatmaps and \textbf{Supabase Realtime}}
 \resumeItemListEnd
- \vspace{-6pt}
+ \vspace{2pt}
     \resumeProjectHeading
             {\textbf{{CSNotes}} $|$ \emph{\href{https://github.com/davidanukam/CSNotes}{Source Code}}}{Next.js $|$ TypeScript $|$ Markdown $|$ KaTeX}
-            \\[4mm]
+            \\[1mm]
           \resumeItemListStart
-            \resumeItem{Turned a git-backed Obsidian vault into a browsable Western CS notes catalog using \textbf{Next.js} filesystem routing, \textbf{KaTeX}, and GitHub-flavored \textbf{Markdown}}
-            \resumeItem{Made notes contribution-ready through GitHub issue/PR templates, asset-copy builds, and Markdown rewrites for wiki-links and images}
+            \resumeItem{Turned a git-backed Obsidian vault into a Western CS notes catalog using \textbf{Next.js} filesystem routing, \textbf{KaTeX}, and GitHub-flavored \textbf{Markdown}}
+            \resumeItem{Made notes contribution-ready through GitHub issue/PR templates, asset-copy builds, and Markdown path rewrites}
           \resumeItemListEnd
 
 \resumeSubHeadingListEnd
-\vspace{-28pt}
+\vspace{2pt}
 %-----------LEADERSHIP-----------
 \section{Leadership}
-    \vspace{-5pt}
     \resumeSubHeadingListStart
                    \resumeProjectHeading
             {\textbf{{Duzzenn}} $|$\emph{{\href{https://www.youtube.com/@Duzzenn}{ YouTube $|$}\href{https://www.instagram.com/david_anukam/}{ Instagram}}}}{Mar 2021 -- Present}
-            \\[3mm]
+            \\[1mm]
           \resumeItemListStart
             \resumeItem{Reached \textbf{900+} developers and \textbf{50,000+} impressions by publishing educational coding content on YouTube and Instagram}
-            \resumeItem{Broke down systems programming and automation through a \textbf{C++} sand simulation (\textbf{10K} views) and a \textbf{Python OpenCV/OCR} typing bot (\textbf{5K} views)}
+            \resumeItem{Broke down systems programming and automation through a \textbf{C++} sand sim (\textbf{10K} views) and a \textbf{Python OpenCV/OCR} typing bot (\textbf{5K} views)}
             \resumeItem{Hosted backend and LeetCode study streams (up to 9 hours) plus CS explainers and a Western \textbf{2212} Type Hero walkthrough}
           \resumeItemListEnd
           \resumeSubHeadingListEnd
- \vspace{-20pt}
+ \vspace{2pt}
   %-----------PROGRAMMING SKILLS-----------
 \section{Technical Skills}
- \begin{itemize}[leftmargin=0.15in, label={}]
+ \begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt, parsep=0pt, topsep=1pt]
     \small{\item{
-     \textbf{Languages}{: Python, Java, C, C++, Go, Rust, SQL, PHP, HTML5, CSS, JavaScript, TypeScript} \\[1mm]
-     \textbf{Developer Tools}{: Git, GitHub, GitHub Actions, Docker, PostgreSQL, Supabase, Alembic, Vercel, Linux, VS Code} \\[1mm]
-     \textbf{Libraries/Frameworks}{: FastAPI, SQLAlchemy, Pydantic, Next.js, React, Zod, WebSockets, JWT, TailwindCSS, PyTorch, TensorFlow, Tauri, Expo} \\ [1mm]
+     \textbf{Languages}{: Python, Java, C, C++, Go, Rust, SQL, PHP, HTML5, CSS, JavaScript, TypeScript} \\[0.6mm]
+     \textbf{Developer Tools}{: Git, GitHub, GitHub Actions, Docker, PostgreSQL, Supabase, Alembic, Vercel, Linux, VS Code} \\[0.6mm]
+     \textbf{Libraries/Frameworks}{: FastAPI, SQLAlchemy, Pydantic, Next.js, React, Zod, WebSockets, JWT, Tailwind, PyTorch, TensorFlow}
     }}
  \end{itemize}
- \vspace{-16pt}
- \vspace{3pt}
-\vspace{2pt}
-
-\vspace{-15pt}
 
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.6)  2 SEP 2026 17:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.6)  2 SEP 2026 17:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -427,24 +427,24 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (David_CS_Resume_New.aux)
 \openout1 = `David_CS_Resume_New.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 94.
-LaTeX Font Info:    ... okay on input line 94.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
 
 (C:\Users\david\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -461,7 +461,7 @@ ii
 \makeMPintoPDFobject=\count320
 \everyMPtoPDFconversion=\toks28
 )
-Package hyperref Info: Link coloring OFF on input line 94.
+Package hyperref Info: Link coloring OFF on input line 95.
  (David_CS_Resume_New.out) (David_CS_Resume_New.out)
 \@outlinefile=\write3
 \openout3 = `David_CS_Resume_New.out'.
@@ -475,15 +475,15 @@ Package hyperref Info: Link coloring OFF on input line 94.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(39.83368pt, 534.62764pt, 39.83368pt)
-* v-part:(T,H,B)=(39.83368pt, 715.30263pt, 39.83368pt)
+* h-part:(L,W,R)=(34.14322pt, 546.00856pt, 34.14322pt)
+* v-part:(T,H,B)=(32.72049pt, 735.21947pt, 27.03003pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=556.30885pt
-* \textheight=715.30263pt
-* \oddsidemargin=-43.27637pt
-* \evensidemargin=-32.43631pt
-* \topmargin=-32.43631pt
+* \textwidth=567.68977pt
+* \textheight=735.21947pt
+* \oddsidemargin=-48.96683pt
+* \evensidemargin=-38.12677pt
+* \topmargin=-39.5495pt
 * \headheight=0.0pt
 * \headsep=0.0pt
 * \topskip=10.0pt
@@ -502,66 +502,66 @@ Package hyperref Info: Link coloring OFF on input line 94.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree2 on i
-nput line 100.
+nput line 105.
 
 (C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontaweso
 mefree2.fd)
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 100.
+(Font)              <8> on input line 105.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 100.
+(Font)              <6> on input line 105.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 100.
+(Font)              <5> on input line 105.
 LaTeX Font Info:    Trying to load font information for U+lasy on input line 10
-0.
+5.
 
 (C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree1 on i
-nput line 101.
+nput line 106.
 
 (C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontaweso
 mefree1.fd)
 LaTeX Font Info:    Trying to load font information for U+fontawesomebrands0 on
- input line 102.
+ input line 107.
 
 (C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontaweso
 mebrands0.fd)
 LaTeX Font Info:    Font shape `U/fontawesomebrands0/solid/n' in size <8> not a
 vailable
 (Font)              Font shape `U/fontawesomebrands0/regular/n' tried instead o
-n input line 102.
+n input line 107.
 LaTeX Font Info:    Trying to load font information for U+fontawesomefree0 on i
-nput line 104.
+nput line 109.
 
 (C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/fontawesome5\ufontaweso
 mefree0.fd)
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
-(Font)              using `OT1/cmr/bx/n' instead on input line 109.
+(Font)              using `OT1/cmr/bx/n' instead on input line 114.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 114.
+(Font)              <7> on input line 119.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 119.
+(Font)              <9> on input line 123.
 
-Overfull \hbox (0.56024pt too wide) in paragraph at lines 152--153
+Overfull \hbox (0.5717pt too wide) in paragraph at lines 160--161
 []  
  []
 
 
-Overfull \hbox (0.56024pt too wide) in paragraph at lines 161--162
+Overfull \hbox (0.5717pt too wide) in paragraph at lines 169--170
 []  
  []
 
 
-Overfull \hbox (0.56024pt too wide) in paragraph at lines 169--170
+Overfull \hbox (0.5717pt too wide) in paragraph at lines 177--178
 []  
  []
 
 
-Overfull \hbox (0.56024pt too wide) in paragraph at lines 183--184
+Overfull \hbox (0.5717pt too wide) in paragraph at lines 190--191
 []  
  []
 
@@ -590,13 +590,13 @@ Package rerunfilecheck Info: File `David_CS_Resume_New.out' has not changed.
 (rerunfilecheck)             Checksum: 0AA72C6A9574CB289580AA11C39CA29A;511.
  ) 
 Here is how much of TeX's memory you used:
- 14716 strings out of 467867
- 255510 string characters out of 5418335
- 701556 words of memory out of 5000000
- 43423 multiletter control sequences out of 15000+600000
+ 14721 strings out of 467867
+ 255640 string characters out of 5418335
+ 700889 words of memory out of 5000000
+ 43428 multiletter control sequences out of 15000+600000
  635152 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,79p,358b,464s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,79p,358b,466s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/fontawesome5
 /FontAwesome5Brands-Regular.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/f
 onts/type1/public/fontawesome5/FontAwesome5Free-Solid.pfb><C:/Users/david/AppDa
@@ -610,7 +610,7 @@ cm/cmcsc10.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public
 s/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/david/AppData/Local/Programs/MiK
 TeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/david/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on David_CS_Resume_New.pdf (1 page, 160778 bytes).
+Output written on David_CS_Resume_New.pdf (1 page, 160740 bytes).
 PDF statistics:
  113 PDF objects out of 1000 (max. 8388607)
  7 named destinations out of 1000 (max. 500000)
