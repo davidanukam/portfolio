@@ -415,6 +415,16 @@ export default function Home() {
         }));
 
         const handler = () => {
+            // When scrolled to (or very near) the bottom, the final short section
+            // can't reach the offset threshold, so activate it explicitly.
+            const scrolledToBottom =
+                window.innerHeight + window.scrollY >=
+                document.documentElement.scrollHeight - 2;
+            if (scrolledToBottom) {
+                setActiveSection(sections[sections.length - 1].name);
+                return;
+            }
+
             const scrollY = window.scrollY + 200;
             for (let i = sections.length - 1; i >= 0; i--) {
                 if (sections[i].el && sections[i].el!.offsetTop <= scrollY) {
